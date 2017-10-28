@@ -5,21 +5,18 @@ using UnityEngine;
 public class AspectRatioAdjuster : MonoBehaviour
 {
     [SerializeField]
-    private List<AdjustmentInfo> adjustmentInfo;
-    [Space(5)]
-    [SerializeField]
-    private GameObject adjustableObject; // TODO Use transform if there's just one game object here
+    private List<AdjustmentInfo> adjustmentInfo;    
 
-    private void Awake()
+    private void Start()
     {
-        float cameraAspect = Camera.main.aspect;
+        float cameraAspect = GameManager.Instance.orthographicCamera.GetComponent<Camera>().aspect;
 
         for (int i = 0; i < adjustmentInfo.Count; i++)
         {
             if (cameraAspect == adjustmentInfo[i].aspect)
             {
-                adjustableObject.transform.position = adjustmentInfo[i].position;
-                adjustableObject.transform.localScale = adjustmentInfo[i].scale;
+                transform.position = adjustmentInfo[i].position;
+                transform.localScale = adjustmentInfo[i].scale;
                 break;
             }
         }

@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject bedroomLightsOff;
+    public GameObject perspectiveCamera;
+    public GameObject orthographicCamera;
+
+    [Space(10)]
     [SerializeField] private GameObject navigation;
     [Space(5)]
-    [SerializeField] private GameObject bookshelf;
+    [SerializeField] private GameObject bedToys;
     [SerializeField] private GameObject bin;
+    [SerializeField] private GameObject bookshelf;
+    [SerializeField] private GameObject cupboard;
     [SerializeField] private GameObject deskDrawers;
     [SerializeField] private GameObject door;
     [SerializeField] private GameObject lightSwitch;
-    [SerializeField] private GameObject cupboard;
-    [SerializeField] private GameObject window;
-    [SerializeField] private GameObject toyBox;
-    [SerializeField] private GameObject bed;
+    [SerializeField] private GameObject lockBox;
     [SerializeField] private GameObject safe;
-
+    [SerializeField] private GameObject toyBox;
+    [SerializeField] private GameObject window;
+    [Space(10)]
     [SerializeField] private CanvasGroup fadeCanvasGroup;
     [SerializeField, Range(0, 1)] private float fadeTime;
 
@@ -62,8 +66,10 @@ public class GameManager : MonoBehaviour
 
     public void GoBackToBedroom()
     {
+        perspectiveCamera.SetActive(true);
+        orthographicCamera.SetActive(false);
+
         activePuzzleArea.SetActive(false);
-        bedroomLightsOff.SetActive(true);
         navigation.SetActive(false);
     }
 
@@ -100,8 +106,8 @@ public class GameManager : MonoBehaviour
             case PuzzleArea.ToyBox:
                 activePuzzleArea = toyBox;
                 break;
-            case PuzzleArea.Bed:
-                activePuzzleArea = bed;
+            case PuzzleArea.BedToys:
+                activePuzzleArea = bedToys;
                 break;
             case PuzzleArea.Safe:
                 activePuzzleArea = safe;
@@ -120,8 +126,11 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        // Deactivate bedroom and find active puzzle area
-        bedroomLightsOff.SetActive(false);
+        // Change cameras
+        perspectiveCamera.SetActive(false);
+        orthographicCamera.SetActive(true);
+
+        // Activate puzzle area
         activePuzzleArea.SetActive(true);
         navigation.SetActive(true);
 
@@ -134,4 +143,4 @@ public class GameManager : MonoBehaviour
     }
 }
 
-public enum PuzzleArea { Bookshelf, Bin, DeskDrawers, Door, LightSwitch, Cupboard, Window, ToyBox, Bed, Safe }
+public enum PuzzleArea { BedToys, Bin, Bookshelf, Cupboard, DeskDrawers, Door, LightSwitch, LockBox, Safe, ToyBox, Window }

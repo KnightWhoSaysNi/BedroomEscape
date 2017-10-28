@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerLook : MonoBehaviour
+public class CameraLook : MonoBehaviour
 {    
-    public Text rotationValueText;
-
     private Transform myTransform;
 
-    [SerializeField, Range(1, 100)] private float rotationSpeed;
-    [SerializeField, Range(-90, 0)] private float minX;
-    [SerializeField, Range(0, 90)] private float maxX;
+    [SerializeField, Range(1, 100)] private float rotationSpeed = 45;
+    [SerializeField, Range(-90, 0)] private float minX = -85;
+    [SerializeField, Range(0, 90)] private float maxX = 85;
     private Quaternion newRotation; 
     private float minXAngle;
     private float maxXAngle;
@@ -19,12 +17,6 @@ public class PlayerLook : MonoBehaviour
     private float verticalInput;
     private float yRotation;
     private float xRotation;
-
-    public void OnRotationValueChanged(float value)
-    {
-        rotationSpeed = value;
-        rotationValueText.text = value.ToString();
-    }
 
     private void Awake()
     {
