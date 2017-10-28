@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Panorama
+  m_Name: BedroomLightsOn
   m_Shader: {fileID: 4800000, guid: 9cd53dc80fe69404faa4dd9d6e8e9227, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -39,7 +39,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2d6646918f4efe64488e538fbbda7793, type: 3}
+        m_Texture: {fileID: 2800000, guid: ee7da4c6b412227419fb04421d8a8f67, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
