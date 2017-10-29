@@ -1,11 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class Book : MonoBehaviour
 {
-    public BookSorter bookSorter;
+    [SerializeField]
+    private BookSorter bookSorter;
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
@@ -15,6 +18,9 @@ public class Book : MonoBehaviour
 
     private void OnMouseDown()
     {
-        bookSorter.SelectedBook = spriteRenderer;
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            bookSorter.SelectedBook = spriteRenderer;
+        }
     }
 }

@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CanvasGroup fadeCanvasGroup;
     [SerializeField, Range(0, 1)] private float fadeTime;
 
-    private GameObject activePuzzleArea;    
+    private GameObject activePuzzleArea;
+    private GameObject previousPuzzleArea;
 
     #region - "Singleton" Instance -
     private static GameManager instance;
@@ -61,16 +62,13 @@ public class GameManager : MonoBehaviour
     {
         SetActivePuzzleArea(puzzleArea);        
         StopAllCoroutines();
-        StartCoroutine(GoToPuzzleArea());
+        StartCoroutine(ChangeAreas(false));
     }   
 
     public void GoBackToBedroom()
     {
-        perspectiveCamera.SetActive(true);
-        orthographicCamera.SetActive(false);
-
-        activePuzzleArea.SetActive(false);
-        navigation.SetActive(false);
+        StopAllCoroutines();
+        StartCoroutine(ChangeAreas(true));        
     }
 
     private void Awake()
@@ -80,6 +78,11 @@ public class GameManager : MonoBehaviour
 
     private void SetActivePuzzleArea(PuzzleArea puzzleArea)
     {
+        if (activePuzzleArea != null)
+        {
+            previousPuzzleArea = activePuzzleArea;
+        }
+
         switch (puzzleArea)
         {
             case PuzzleArea.Bookshelf:
@@ -96,6 +99,9 @@ public class GameManager : MonoBehaviour
                 break;
             case PuzzleArea.LightSwitch:
                 activePuzzleArea = lightSwitch;
+                break;
+            case PuzzleArea.LockBox:
+                activePuzzleArea = lockBox;
                 break;
             case PuzzleArea.Cupboard:
                 activePuzzleArea = cupboard;
@@ -117,8 +123,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private IEnumerator GoToPuzzleArea()
+    private IEnumerator ChangeAreas(bool isBedroomActive)
     {
+        // Activate to block additional clicks
+        fadeCanvasGroup.gameObject.SetActive(true);
+
         // Fade out
         while (fadeCanvasGroup.alpha < 1)
         {
@@ -127,12 +136,25 @@ public class GameManager : MonoBehaviour
         }
 
         // Change cameras
-        perspectiveCamera.SetActive(false);
-        orthographicCamera.SetActive(true);
+        perspectiveCamera.SetActive(isBedroomActive);
+        orthographicCamera.SetActive(!isBedroomActive);
 
         // Activate puzzle area
-        activePuzzleArea.SetActive(true);
-        navigation.SetActive(true);
+        activePuzzleArea.SetActive(!isBedroomActive);
+        navigation.SetActive(!isBedroomActive);
+
+        // Deactivate last puzzle area, if there was one
+        if (previousPuzzleArea != null)
+        {
+            previousPuzzleArea.SetActive(false);
+        }
+
+        // If going back to the bedroom, reset active and previous puzzle areas for the next iteration
+        if (isBedroomActive)
+        {
+            activePuzzleArea = null;
+            previousPuzzleArea = null;
+        }
 
         // Fade in
         while (fadeCanvasGroup.alpha > 0)
@@ -140,6 +162,9 @@ public class GameManager : MonoBehaviour
             fadeCanvasGroup.alpha -= (1 / fadeTime) * Time.deltaTime;
             yield return null;
         }
+
+        // Deactivate to allow clicks
+        fadeCanvasGroup.gameObject.SetActive(false);
     }
 }
 

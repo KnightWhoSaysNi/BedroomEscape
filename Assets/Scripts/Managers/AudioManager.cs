@@ -41,16 +41,23 @@ public class AudioManager : MonoBehaviour
     }
     #endregion
 
-    public void PlayBookSelectedAudio()
-    {
-        audioSource.clip = bookSelected;
-        audioSource.Play();
-    }
-    
     public void PlayPuzzleSolvedAudio()
     {
-        audioSource.clip = puzzleSolved;
-        audioSource.Play();
+        PlayAudioClip(puzzleSolved);
+    }
+
+    public void PlayBookSelectedAudio()
+    {
+        PlayAudioClip(bookSelected);
+    }
+    
+    public void PlayAudioClip(AudioClip audioClip)
+    {
+        if (audioClip != null)
+        {
+            audioSource.clip = audioClip;
+            audioSource.Play();
+        }
     }
 
     private void Awake()
@@ -59,4 +66,5 @@ public class AudioManager : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
     }    
+
 }

@@ -95,7 +95,7 @@ public class BookSorter : MonoBehaviour
     private void SortBooks()
     {
         // Start position of the first book is negative half width of all books (plus position.x) so that they are always centered
-        Vector3 bookPosition = new Vector3(-totalWidthOfBooks / 2f + myTransform.position.x, myTransform.position.y, 0);        
+        Vector3 bookPosition = new Vector3(-totalWidthOfBooks / 2f + myTransform.position.x, myTransform.position.y, 0);
         books[0].transform.position = bookPosition;
 
         // Position all other books
