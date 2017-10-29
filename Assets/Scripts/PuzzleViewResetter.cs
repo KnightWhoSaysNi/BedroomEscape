@@ -9,9 +9,14 @@ public class PuzzleViewResetter : MonoBehaviour
     [SerializeField] private AudioClip resetAudio;
 
     private void OnDisable()
-    {
+    {   
+        // Play audio clip if default object isn't already active
+        if (!objectToActivate.activeSelf)
+        {
+            AudioManager.Instance.PlayAudioClip(resetAudio);
+        }
+
         objectToActivate.SetActive(true);
-        AudioManager.Instance.PlayAudioClip(resetAudio);
 
         for (int i = 0; i < objectsToDeactivate.Length; i++)
         {
