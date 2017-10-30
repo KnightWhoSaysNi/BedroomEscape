@@ -5,14 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class PuzzleItem : MonoBehaviour
 {
-    [SerializeField] private PuzzleItemType puzzleItemType;    
+    [SerializeField] private InventoryItem inventoryItem;    
+    [Space(5)]
+    [SerializeField] private Sprite selectedSprite;
+    [SerializeField] private Sprite unselectedSprite;
 
     private void OnMouseDown()
     {
         AudioManager.Instance.PlayPuzzleSolvedAudio();
-        // TODO report to the manager that the object has been picked up
+        InventoryManager.Instance.RegisterItemAcquisition(inventoryItem, selectedSprite, unselectedSprite);
         Destroy(this.gameObject, 0.1f);
     }
 }
-
-public enum PuzzleItemType { BinKey, RedWireSpool, BlackWireSpool, WireSnips, EarthWire, Screwdriver, SafeKey }
