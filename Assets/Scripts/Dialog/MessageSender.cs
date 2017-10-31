@@ -1,32 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MessageSender : MonoBehaviour
+[RequireComponent(typeof(Collider))]
+public class MessageSender : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private string[] messages;
-    [SerializeField] private bool shouldRepeatMessages;
     private int currentMessageIndex;
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        DialogManager.Instance.DisplayMessage(messages[currentMessageIndex]);
+        currentMessageIndex = ++currentMessageIndex % messages.Length;
+    }
 
     private void Awake()
     {
         if (messages.Length == 0)
         {
             print("No messages yet on this message sender");
+            return;
         }
-    }
-
-    private void OnMouseDown()
-    {
-        DialogManager.Instance.DisplayMessage(messages[currentMessageIndex]);
-
-        if (shouldRepeatMessages)
-        {
-            currentMessageIndex = ++currentMessageIndex % messages.Length;
-        }
-        else if (currentMessageIndex != messages.Length - 1)
-        {
-            currentMessageIndex++;
-        }
-    }
+    }    
 }
