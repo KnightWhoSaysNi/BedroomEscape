@@ -13,5 +13,6 @@ public class AreaTransition : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         GameManager.Instance.GoToPuzzleArea(puzzleArea);
+        DialogManager.Instance.HideDialogBox();
     }
 }
