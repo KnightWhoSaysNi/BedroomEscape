@@ -9,43 +9,16 @@ public class Slot : MonoBehaviour
     private Image myImage;
     private Button myButton;
 
-    private InventoryItem inventoryItem;
-    private Sprite selectedSprite;
-    private Sprite unselectedSprite;
+    [HideInInspector]
+    public InventoryItem inventoryItem;
     private bool isSelected;
     private bool isAwoken;
-
-    public InventoryItem InventoryItem
-    {
-        get
-        {
-            return inventoryItem;
-        }
-    }
+        
     public bool IsAwoken
     {
         get
         {
             return isAwoken;
-        }
-    }
-
-    public void SetSlot(InventoryItem inventoryItem, Sprite selectedSprite, Sprite unselectedSprite)
-    {
-        this.inventoryItem = inventoryItem;
-        this.selectedSprite = selectedSprite;
-        this.unselectedSprite = unselectedSprite;
-
-        myImage.sprite = unselectedSprite;
-        isSelected = false;
-    }
-
-    public void Deselect()
-    {
-        if (inventoryItem != InventoryItem.Nothing)
-        {
-            myImage.sprite = unselectedSprite;
-            isSelected = false;
         }
     }
 
@@ -59,17 +32,40 @@ public class Slot : MonoBehaviour
             myButton = GetComponent<Button>();
             myButton.onClick.AddListener(OnClick);
 
-            inventoryItem = InventoryItem.Nothing;
+            inventoryItem = new InventoryItem();
+
             isAwoken = true;
         }
     }
 
+    public void SetSlot(InventoryItem inventoryItem)
+    {
+        this.inventoryItem = inventoryItem;
+        myImage.sprite = inventoryItem.unselectedSprite;
+        isSelected = false;
+    }
+
+    public void Deselect()
+    {
+        if (inventoryItem.inventoryItemType != InventoryItemType.Nothing)
+        {
+            myImage.sprite = inventoryItem.unselectedSprite;
+            isSelected = false;
+        }
+    }
+
+    public void ClearSlot(Sprite emptySprite)
+    {
+        inventoryItem.inventoryItemType = InventoryItemType.Nothing;
+        myImage.sprite = emptySprite;        
+    }
+
     private void OnClick()
     {
-        if (inventoryItem != InventoryItem.Nothing)
+        if (inventoryItem.inventoryItemType != InventoryItemType.Nothing)
         {
             isSelected = !isSelected;
-            myImage.sprite = isSelected ? selectedSprite : unselectedSprite;
+            myImage.sprite = isSelected ? inventoryItem.selectedSprite : inventoryItem.unselectedSprite;
 
             InventoryManager.Instance.RegisterSlotAction(this);
         }
