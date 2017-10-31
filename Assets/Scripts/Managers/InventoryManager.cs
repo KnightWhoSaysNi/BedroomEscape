@@ -62,6 +62,11 @@ public class InventoryManager : MonoBehaviour
     }
     #endregion
 
+    public bool IsItemSelected(InventoryItemType itemType)
+    {
+        return activeItem.inventoryItemType == itemType;
+    }
+
     public void RegisterSlotAction(Slot actionSlot)
     {
         if (activeSlot == null)
@@ -93,10 +98,13 @@ public class InventoryManager : MonoBehaviour
                     if (activeItem.inventoryItemType == itemCombinations[i].firstItem &&                // Already clicked item (active item) is the first item
                         actionSlot.inventoryItem.inventoryItemType == itemCombinations[i].secondItem)   // Newly clicked item (activeSlot's item) is the second item
                     {
-                        // Item combination found. By default  second item is destroyed and replaced with the "gainedItem"                        
-                        activeSlot.SetSlot(itemCombinations[i].gainedItem);
-                        activeItem = itemCombinations[i].gainedItem;
+                        // Item combination found. By default second item is "destroyed" and replaced with the "gainedItem"                        
                         isCombinationFound = true;
+                        InventoryItem gainedItem = itemCombinations[i].gainedItem;
+                        allInventoryItems.Remove(actionSlot.inventoryItem);     
+                        allInventoryItems.Add(gainedItem);
+                        activeSlot.SetSlot(gainedItem);
+                        activeItem = gainedItem;
                         AudioManager.Instance.PlayPuzzleSolvedAudio();
                         break;
                     }
@@ -119,21 +127,23 @@ public class InventoryManager : MonoBehaviour
 
     public void RegisterItemAcquisition(InventoryItem acquiredItem)
     {
-        // Check if earth wire is found
-        if (acquiredItem.inventoryItemType == InventoryItemType.EarthWire)
-        {
-            isEarthWireFound = true;
-            CheckIfAllWiresFound();
-        }
-
         // Find empty slot for the acquired item
         for (int i = 0; i < slots.Length; i++)
         {
             if (slots[i].inventoryItem.inventoryItemType == InventoryItemType.Nothing)
             {                
                 slots[i].SetSlot(acquiredItem);
-                return;
+                break;
             }
+        }
+
+        allInventoryItems.Add(acquiredItem);
+
+        // Check if earth wire is found
+        if (acquiredItem.inventoryItemType == InventoryItemType.EarthWire)
+        {
+            isEarthWireFound = true;
+            CheckIfAllWiresFound();
         }
     }
 
@@ -158,11 +168,11 @@ public class InventoryManager : MonoBehaviour
     private void Awake()
     {
         InitializeSingleton();
+        allInventoryItems = new List<InventoryItem>();
     }
 
     private void Start()
     {
-        allInventoryItems = new List<InventoryItem>();
 
         for (int i = 0; i < slots.Length; i++)
         {
@@ -205,12 +215,13 @@ public class InventoryManager : MonoBehaviour
     }
 
     private void RemoveInventoryItem(InventoryItemType itemToRemove)
-    {
+    {        
         for (int i = 0; i < slots.Length; i++)
         {
             if (slots[i].inventoryItem.inventoryItemType == itemToRemove)
             {
                 slots[i].ClearSlot(emptySlot);
+                allInventoryItems.Remove(slots[i].inventoryItem);
                 return;
             }
         }
@@ -221,22 +232,15 @@ public class InventoryManager : MonoBehaviour
         // Go through all slots and find non-empty ones
         for (int i = 0; i < slots.Length; i++)
         {
-            if (slots[i].inventoryItem.inventoryItemType != InventoryItemType.Nothing)
+            if (i < allInventoryItems.Count)
             {
-                // Non-empty slot found. It's item is added to the list of all items and it's cleared
-                allInventoryItems.Add(slots[i].inventoryItem);
-                slots[i].ClearSlot(emptySlot);
+                slots[i].SetSlot(allInventoryItems[i]);
+            }
+            else
+            {
+                slots[i].ClearSlot(emptySlot);            
             }
         }
-
-        // Go through all slots and populate them with items
-        for (int i = 0; i < allInventoryItems.Count; i++)
-        {
-            slots[i].SetSlot(allInventoryItems[i]);
-        }
-
-        // Reset for possible next use
-        allInventoryItems.Clear();
     }
 }
 

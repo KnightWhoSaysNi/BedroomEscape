@@ -497,10 +497,10 @@ RectTransform:
   m_Father: {fileID: 1655565341}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 20}
+  m_SizeDelta: {x: 0, y: 55}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &61259515
 MonoBehaviour:
@@ -576,7 +576,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: a34fb60756818e544adf2c8712390a76, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -690,7 +690,7 @@ RectTransform:
   m_Father: {fileID: 1006837225}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5951531}
+  m_AnchorMin: {x: 0, y: 0.3074109}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -1108,7 +1108,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messages:
   - Teddy with his rain coat on.
-  shouldRepeatMessages: 0
 --- !u!136 &156295688
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1333,6 +1332,7 @@ GameObject:
   - component: {fileID: 181619649}
   - component: {fileID: 181619651}
   - component: {fileID: 181619650}
+  - component: {fileID: 181619652}
   m_Layer: 0
   m_Name: Desk draws top
   m_TagString: Untagged
@@ -1445,6 +1445,20 @@ PolygonCollider2D:
       - {x: 3.7755332, y: -6.0214014}
       - {x: 4.7687473, y: -4.806401}
       - {x: 4.7048273, y: -3.781735}
+--- !u!114 &181619652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 181619647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e17d46789be1e243bd11d7e54cbc0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - What a messy draw, I need to tidy it up sometime.
+  shouldRepeatMessages: 0
 --- !u!1 &205436162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,7 +1574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d032e6f45d57e4e40895e590fcc1b9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleArea: 2
+  puzzleArea: 3
 --- !u!65 &247645159
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1616,7 +1630,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messages:
   - "Yay my turtle, he doesn\u2019t have a name. He\u2019s to cool for names."
-  shouldRepeatMessages: 0
 --- !u!65 &273366820
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1831,7 +1844,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1955300050}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &347162296
 MonoBehaviour:
@@ -2015,8 +2028,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32.24002, y: -850}
-  m_SizeDelta: {x: 64.48004, y: 80}
+  m_AnchoredPosition: {x: 62.900024, y: -1220}
+  m_SizeDelta: {x: 125.80005, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &422526810
 MonoBehaviour:
@@ -2226,6 +2239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 436057364}
   - component: {fileID: 436057365}
+  - component: {fileID: 436057366}
   m_Layer: 0
   m_Name: Bed Toys
   m_TagString: Untagged
@@ -2242,7 +2256,12 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 981049206}
+  - {fileID: 438343820}
+  - {fileID: 626958787}
+  - {fileID: 517196665}
+  - {fileID: 2047362798}
   m_Father: {fileID: 1475214160}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2288,6 +2307,137 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &436057366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436057363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e17d46789be1e243bd11d7e54cbc0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - My toys protect me when I sleep.
+  shouldRepeatMessages: 0
+--- !u!1 &438343819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 438343820}
+  - component: {fileID: 438343822}
+  - component: {fileID: 438343821}
+  m_Layer: 0
+  m_Name: Octopus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &438343820
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 438343819}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436057364}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &438343821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 438343819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bb32596bc523946aadc40065b73c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - George the Octopus. He has a twin brother you know.
+--- !u!60 &438343822
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 438343819}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.5537099, y: 2.7262385}
+      - {x: 1.0538871, y: 3.1485064}
+      - {x: 0.7173358, y: 3.2610872}
+      - {x: 0.35953283, y: 3.2441413}
+      - {x: -0.20911387, y: 3.0102038}
+      - {x: -0.42599207, y: 2.7978747}
+      - {x: -0.6299132, y: 2.2298155}
+      - {x: -0.663648, y: 1.7583814}
+      - {x: -1.5078746, y: 1.5757058}
+      - {x: -2.203264, y: 1.5317278}
+      - {x: -2.321793, y: 1.4621146}
+      - {x: -2.1570385, y: 1.2893385}
+      - {x: -1.8341483, y: 1.1523474}
+      - {x: -1.3886855, y: 1.1225475}
+      - {x: -0.9195039, y: 1.1112175}
+      - {x: -1.3803301, y: 0.5727657}
+      - {x: -1.7853503, y: 0.38581356}
+      - {x: -2.1691442, y: 0.3373798}
+      - {x: -2.3089752, y: 0.20762622}
+      - {x: -2.2937727, y: 0.029640198}
+      - {x: -1.7719657, y: -0.046223007}
+      - {x: -1.0771909, y: 0.120921224}
+      - {x: -0.4256462, y: 0.43588477}
+      - {x: -0.5644002, y: 0.07990518}
+      - {x: -1.0082241, y: -0.3028482}
+      - {x: -1.2706956, y: -0.60503495}
+      - {x: -1.1066791, y: -0.8429146}
+      - {x: -0.7342131, y: -0.73182434}
+      - {x: -0.08986661, y: -0.35227826}
+      - {x: 0.51606655, y: 0.1435073}
+      - {x: 0.70112723, y: -0.20208338}
+      - {x: 0.67777294, y: -0.5760086}
+      - {x: 0.49164504, y: -0.8481005}
+      - {x: 0.55504197, y: -1.093024}
+      - {x: 0.8330346, y: -1.1085106}
+      - {x: 1.152476, y: -0.8426569}
+      - {x: 1.3577001, y: -0.38539374}
+      - {x: 1.4201665, y: 0.03397572}
+      - {x: 1.430233, y: 0.43600357}
+      - {x: 2.0125277, y: 0.3469937}
+      - {x: 2.4694376, y: 0.27746844}
+      - {x: 2.3685744, y: 0.80851054}
+      - {x: 1.9081879, y: 1.0970397}
+      - {x: 3.2339659, y: 1.126448}
+      - {x: 2.9830296, y: 1.3847989}
+      - {x: 1.7168585, y: 1.7330977}
+      - {x: 1.7472693, y: 1.904413}
+      - {x: 2.0684342, y: 2.1245027}
+      - {x: 1.927013, y: 2.3655822}
+      - {x: 1.6746622, y: 2.2877314}
 --- !u!1 &442507942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2297,6 +2447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 442507943}
   - component: {fileID: 442507944}
+  - component: {fileID: 442507945}
   m_Layer: 0
   m_Name: ToyBox unlocked
   m_TagString: Untagged
@@ -2359,6 +2510,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &442507945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 442507942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e17d46789be1e243bd11d7e54cbc0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - I unlocked it, take that padlock.
+  shouldRepeatMessages: 0
 --- !u!1 &443742029
 GameObject:
   m_ObjectHideFlags: 0
@@ -2402,7 +2567,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messages:
   - "I drew that picture, it\u2019s of George2."
-  shouldRepeatMessages: 0
 --- !u!65 &443742032
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2424,6 +2588,9 @@ GameObject:
   m_Component:
   - component: {fileID: 456824478}
   - component: {fileID: 456824479}
+  - component: {fileID: 456824481}
+  - component: {fileID: 456824480}
+  - component: {fileID: 456824482}
   m_Layer: 0
   m_Name: Door Closed
   m_TagString: Untagged
@@ -2486,6 +2653,61 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &456824480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456824477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bb32596bc523946aadc40065b73c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - "It\u2019s locked."
+  - "It won\u2019t open without a key."
+  - "I\u2019m trapped in my room, I gotta get out."
+--- !u!60 &456824481
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456824477}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 16.980001, y: 14.86}
+    newSize: {x: 16.98, y: 14.86}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -3.4619145, y: 8.008518}
+      - {x: -3.498742, y: -7.4895935}
+      - {x: 5.3611226, y: -7.5001736}
+      - {x: 5.361122, y: 7.245865}
+--- !u!114 &456824482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456824477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf499a4e4e686c4a97cbf40cbe5db26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: cb36a7f6563f34a49b778a5d23eb85fd, type: 3}
 --- !u!1 &483521531
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,6 +2818,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookSorter: {fileID: 96162869}
+--- !u!1 &483776473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 483776474}
+  - component: {fileID: 483776476}
+  - component: {fileID: 483776475}
+  m_Layer: 0
+  m_Name: Boat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &483776474
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 483776473}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.8, y: -0.63, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1066851812}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &483776475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 483776473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff13c07df062454384641d40e361ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleArea: 2
+  requiredItem: 9
+  missingItemMessage: "What\u2019s that over there? I need something to see it better."
+--- !u!58 &483776476
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 483776473}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &494696124
 GameObject:
   m_ObjectHideFlags: 0
@@ -2632,6 +2913,7 @@ Transform:
   - {fileID: 543196065}
   - {fileID: 295731987}
   - {fileID: 1228054557}
+  - {fileID: 1672992616}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2680,7 +2962,6 @@ MonoBehaviour:
   messages:
   - No time to go online, I have to find a way out.
   - "Oh look it\u2019s not working."
-  shouldRepeatMessages: 0
 --- !u!65 &500237880
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2776,6 +3057,138 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &517196664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 517196665}
+  - component: {fileID: 517196668}
+  - component: {fileID: 517196667}
+  - component: {fileID: 517196666}
+  m_Layer: 0
+  m_Name: Seahorse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &517196665
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 517196664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436057364}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &517196666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 517196664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bb32596bc523946aadc40065b73c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - Sally Seahorse!
+--- !u!60 &517196667
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 517196664}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 6.0630927, y: -1.5872698}
+      - {x: 6.0622373, y: -1.7054718}
+      - {x: 6.1351256, y: -1.7830472}
+      - {x: 6.3654356, y: -2.2104194}
+      - {x: 6.4313965, y: -2.3390265}
+      - {x: 6.4334064, y: -2.5800564}
+      - {x: 6.3557544, y: -2.7006493}
+      - {x: 6.176521, y: -2.7664936}
+      - {x: 6.052121, y: -2.7434988}
+      - {x: 5.956949, y: -2.6490521}
+      - {x: 5.7496486, y: -2.5807672}
+      - {x: 5.6456738, y: -2.4844544}
+      - {x: 5.567664, y: -2.6448119}
+      - {x: 5.7508645, y: -3.0048237}
+      - {x: 6.1128006, y: -3.0116074}
+      - {x: 6.3062954, y: -2.932384}
+      - {x: 6.5458317, y: -2.730236}
+      - {x: 6.6056204, y: -2.5784237}
+      - {x: 6.627784, y: -2.2648451}
+      - {x: 6.4365153, y: -1.8997629}
+      - {x: 6.217807, y: -1.7022555}
+--- !u!60 &517196668
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 517196664}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 4.387506, y: -0.16323656}
+      - {x: 4.036853, y: -0.02693151}
+      - {x: 3.7600017, y: -0.05478415}
+      - {x: 3.376667, y: -0.20303118}
+      - {x: 3.1121726, y: -0.39952546}
+      - {x: 2.8325593, y: -0.81538296}
+      - {x: 2.983315, y: -1.2750653}
+      - {x: 2.8196456, y: -1.7767675}
+      - {x: 3.0259178, y: -1.9478946}
+      - {x: 3.1903186, y: -1.806993}
+      - {x: 3.4183846, y: -1.1538737}
+      - {x: 3.85774, y: -0.68435186}
+      - {x: 3.9472802, y: -0.7141733}
+      - {x: 4.199543, y: -1.1277215}
+      - {x: 4.5911026, y: -1.070188}
+      - {x: 4.9266386, y: -1.0598}
+      - {x: 4.976444, y: -1.0369527}
+      - {x: 4.9823675, y: -0.75615996}
+      - {x: 5.0626993, y: -0.6567735}
 --- !u!1 &520180082
 GameObject:
   m_ObjectHideFlags: 0
@@ -2819,7 +3232,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 2, y: 0}
-  m_SizeDelta: {x: -4, y: 980}
+  m_SizeDelta: {x: -4, y: 1270}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &520180084
 MonoBehaviour:
@@ -2851,7 +3264,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 10
+  m_Spacing: 30
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -2891,8 +3304,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.05}
   m_AnchorMax: {x: 1, y: 0.8}
-  m_AnchoredPosition: {x: -13, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 3.5, y: 0}
+  m_SizeDelta: {x: -33, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &529520115
 MonoBehaviour:
@@ -3080,6 +3493,34 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &569611123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 569611124}
+  m_Layer: 0
+  m_Name: Lock Combinations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &569611124
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 569611123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2093861156}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &614826981
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,6 +3530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 614826982}
   - component: {fileID: 614826983}
+  - component: {fileID: 614826985}
   m_Layer: 0
   m_Name: Boat Spyglass
   m_TagString: Untagged
@@ -3106,8 +3548,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1228054557}
-  m_RootOrder: 1
+  m_Father: {fileID: 1672992616}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &614826983
 SpriteRenderer:
@@ -3151,6 +3593,138 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &614826985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 614826981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0595c1d1fd05f6c43852128769941f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 983515831}
+--- !u!1 &626958786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 626958787}
+  - component: {fileID: 626958789}
+  - component: {fileID: 626958788}
+  m_Layer: 0
+  m_Name: Crab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &626958787
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 626958786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436057364}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &626958788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 626958786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bb32596bc523946aadc40065b73c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - El Claw the terrible.
+--- !u!60 &626958789
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 626958786}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 3.4507868, y: 1.0523666}
+      - {x: 3.2815387, y: 1.0913045}
+      - {x: 3.2172525, y: 1.2520726}
+      - {x: 2.9554749, y: 1.4226015}
+      - {x: 2.8634686, y: 1.3829938}
+      - {x: 2.962357, y: 1.1936215}
+      - {x: 2.7431142, y: 1.2084678}
+      - {x: 2.4404633, y: 1.5151638}
+      - {x: 2.2474787, y: 1.5559797}
+      - {x: 2.1896632, y: 1.5054791}
+      - {x: 2.3030543, y: 1.3692665}
+      - {x: 1.8827437, y: 1.4958352}
+      - {x: 1.6392382, y: 1.5343608}
+      - {x: 1.6315379, y: 1.4617366}
+      - {x: 1.889801, y: 1.3035109}
+      - {x: 2.2483869, y: 1.0240824}
+      - {x: 2.2449682, y: 0.94675976}
+      - {x: 2.0776021, y: 0.9529566}
+      - {x: 1.4121869, y: 0.968624}
+      - {x: 1.161304, y: 0.84205365}
+      - {x: 1.0852778, y: 0.609025}
+      - {x: 1.1082835, y: 0.35625768}
+      - {x: 1.2447371, y: 0.22866274}
+      - {x: 1.6465611, y: 0.33070695}
+      - {x: 1.881191, y: 0.5474827}
+      - {x: 2.3092217, y: 0.47881544}
+      - {x: 2.350954, y: 0.29036596}
+      - {x: 2.5266693, y: -0.04571759}
+      - {x: 2.2379942, y: -0.21133691}
+      - {x: 1.8201042, y: -0.11657983}
+      - {x: 1.5593692, y: -0.20853838}
+      - {x: 1.3672277, y: -0.2919637}
+      - {x: 1.3647801, y: -0.49397773}
+      - {x: 1.434883, y: -0.6539661}
+      - {x: 1.7062117, y: -0.8708108}
+      - {x: 2.037816, y: -0.89083797}
+      - {x: 2.7062187, y: -0.43890244}
+      - {x: 2.8188376, y: -0.31306702}
+      - {x: 3.024975, y: -0.43955177}
+      - {x: 2.7881718, y: -1.4349059}
+      - {x: 2.9086018, y: -1.5162802}
+      - {x: 3.3804438, y: -0.5575026}
+      - {x: 3.7720313, y: -1.6093222}
+      - {x: 3.9025238, y: -1.6210083}
+      - {x: 3.8867102, y: -1.1084771}
+      - {x: 3.7103796, y: -0.082871914}
+      - {x: 4.1395006, y: -0.023237526}
+      - {x: 4.2648945, y: 0.19513677}
+      - {x: 4.1940374, y: 0.53076464}
+      - {x: 3.9720352, y: 0.7906054}
+      - {x: 3.6843476, y: 0.9467431}
+      - {x: 3.6849084, y: 1.1240746}
+      - {x: 3.5342913, y: 1.1693779}
 --- !u!1 &629473486
 GameObject:
   m_ObjectHideFlags: 0
@@ -3370,7 +3944,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1730350266}
   m_Father: {fileID: 295731987}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3609,13 +4184,15 @@ GameObject:
   m_Component:
   - component: {fileID: 714430945}
   - component: {fileID: 714430946}
+  - component: {fileID: 714430948}
+  - component: {fileID: 714430947}
   m_Layer: 0
   m_Name: Safe Closed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &714430945
 Transform:
   m_ObjectHideFlags: 0
@@ -3671,6 +4248,50 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &714430947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 714430944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bb32596bc523946aadc40065b73c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - "What\u2019s this doing here?"
+  - "I don\u2019t remember having a safe under my bed."
+  - "It won\u2019t open without a code."
+  - "Still won\u2019t open."
+--- !u!60 &714430948
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 714430944}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 16.980001, y: 14.86}
+    newSize: {x: 16.98, y: 14.86}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 5.8978133, y: 2.66633}
+      - {x: -5.713117, y: 2.6906562}
+      - {x: -4.9422116, y: -2.7319367}
+      - {x: 5.1993456, y: -2.7745745}
 --- !u!1 &717729006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3700,8 +4321,8 @@ RectTransform:
   m_Father: {fileID: 2080742953}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2, y: 0.05}
-  m_AnchorMax: {x: 0.8, y: 0.2}
+  m_AnchorMin: {x: 0.2, y: 0.075}
+  m_AnchorMax: {x: 0.8, y: 0.15}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3739,8 +4360,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32.24002, y: -310}
-  m_SizeDelta: {x: 64.48004, y: 80}
+  m_AnchoredPosition: {x: 62.900024, y: -440}
+  m_SizeDelta: {x: 125.80005, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &733058674
 MonoBehaviour:
@@ -3872,7 +4493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d032e6f45d57e4e40895e590fcc1b9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleArea: 5
+  puzzleArea: 6
 --- !u!65 &743424961
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4035,7 +4656,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1537389174}
   m_Father: {fileID: 2146245817}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4195,7 +4817,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messages:
   - My ship wheel clock, always giving me the correct time.
-  shouldRepeatMessages: 0
 --- !u!135 &856953797
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4249,7 +4870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d032e6f45d57e4e40895e590fcc1b9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleArea: 6
+  puzzleArea: 7
 --- !u!65 &873130035
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4342,6 +4963,82 @@ PolygonCollider2D:
       - {x: 3.1196096, y: -6.698798}
       - {x: 3.7669175, y: -5.872479}
       - {x: 3.723408, y: -5.066641}
+--- !u!1 &937043933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 937043934}
+  - component: {fileID: 937043936}
+  - component: {fileID: 937043935}
+  m_Layer: 0
+  m_Name: Outside
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &937043934
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 937043933}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1066851812}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &937043935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 937043933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bb32596bc523946aadc40065b73c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - What a beautiful day.
+  - The lake looks so calm.
+--- !u!60 &937043936
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 937043933}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 6.745305, y: 3.2176268}
+      - {x: 6.3882074, y: 5.86783}
+      - {x: -6.5569763, y: 5.7910113}
+      - {x: -6.955782, y: 2.915569}
+      - {x: -7.3039417, y: -1.9016463}
+      - {x: -7.3677945, y: -5.7648516}
+      - {x: 7.2839937, y: -5.750533}
+      - {x: 7.075065, y: -0.93391675}
 --- !u!1 &958714498
 GameObject:
   m_ObjectHideFlags: 0
@@ -4486,8 +5183,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32.24002, y: -580}
-  m_SizeDelta: {x: 64.48004, y: 80}
+  m_AnchoredPosition: {x: 62.900024, y: -830}
+  m_SizeDelta: {x: 125.80005, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &959298372
 MonoBehaviour:
@@ -4707,6 +5404,98 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &981049205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 981049206}
+  - component: {fileID: 981049208}
+  - component: {fileID: 981049207}
+  m_Layer: 0
+  m_Name: Dolphin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &981049206
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 981049205}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436057364}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &981049207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 981049205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bb32596bc523946aadc40065b73c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - "That\u2019s my Dolphin Mr Flippers."
+--- !u!60 &981049208
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 981049205}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -4.9079447, y: 2.6776118}
+      - {x: -5.024476, y: 2.5715983}
+      - {x: -4.9315076, y: 2.0760221}
+      - {x: -5.8206887, y: 2.07225}
+      - {x: -7.063662, y: 1.7361735}
+      - {x: -7.7494717, y: 1.3153262}
+      - {x: -9.079859, y: 0.4872613}
+      - {x: -8.656818, y: -0.32861197}
+      - {x: -6.890874, y: 0.014332056}
+      - {x: -4.674023, y: 0.19320536}
+      - {x: -4.5813437, y: -1.094754}
+      - {x: -3.713356, y: -0.9955983}
+      - {x: -3.3193278, y: -0.54273534}
+      - {x: -3.0463421, y: 0.28732437}
+      - {x: -2.2929947, y: 0.409725}
+      - {x: -1.4727817, y: 0.5544872}
+      - {x: -1.0970072, y: 0.9272038}
+      - {x: -1.73236, y: 1.1034194}
+      - {x: -2.1617968, y: 1.2699237}
+      - {x: -2.5255911, y: 1.6431613}
+      - {x: -3.2570724, y: 1.9325693}
+      - {x: -3.7851944, y: 1.9783006}
+      - {x: -3.92738, y: 2.2301834}
+      - {x: -4.2167807, y: 2.4571283}
+      - {x: -4.629428, y: 2.655576}
 --- !u!1 &983515831
 GameObject:
   m_ObjectHideFlags: 0
@@ -4751,13 +5540,14 @@ GameObject:
   m_Component:
   - component: {fileID: 983771199}
   - component: {fileID: 983771200}
+  - component: {fileID: 983771201}
   m_Layer: 0
   m_Name: LockBox Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &983771199
 Transform:
   m_ObjectHideFlags: 0
@@ -4814,6 +5604,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &983771201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 983771198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e17d46789be1e243bd11d7e54cbc0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - Yay it opened.
+  shouldRepeatMessages: 0
 --- !u!1 &988511250
 GameObject:
   m_ObjectHideFlags: 0
@@ -4895,6 +5699,82 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1015668692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1015668693}
+  - component: {fileID: 1015668695}
+  - component: {fileID: 1015668694}
+  m_Layer: 0
+  m_Name: Cupboard Contents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1015668693
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015668692}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1955300050}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1015668694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015668692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bb32596bc523946aadc40065b73c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - This is where all my clothes are.
+  - I have colourful T-Shirts, Jeans and my school uniform.
+--- !u!60 &1015668695
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015668692}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 3.1256316, y: -1.7304286}
+      - {x: 3.1586277, y: -2.4963398}
+      - {x: 4.0879025, y: -2.5013998}
+      - {x: 4.118753, y: 5.535803}
+      - {x: -3.276301, y: 5.533577}
+      - {x: -3.2815406, y: -2.5297222}
+      - {x: 1.2303526, y: -2.504962}
+      - {x: 1.2036902, y: -1.7188764}
 --- !u!1 &1030196680
 GameObject:
   m_ObjectHideFlags: 0
@@ -4929,8 +5809,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32.24002, y: -760}
-  m_SizeDelta: {x: 64.48004, y: 80}
+  m_AnchoredPosition: {x: 62.900024, y: -1090}
+  m_SizeDelta: {x: 125.80005, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1030196682
 MonoBehaviour:
@@ -5120,7 +6000,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 937043934}
+  - {fileID: 483776474}
   m_Father: {fileID: 1228054557}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5416,7 +6298,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messages:
   - The deep ocean is a scary place.
-  shouldRepeatMessages: 0
 --- !u!65 &1100084869
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5438,6 +6319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1105843291}
   - component: {fileID: 1105843292}
+  - component: {fileID: 1105843293}
   m_Layer: 0
   m_Name: Bin Inside
   m_TagString: Untagged
@@ -5506,6 +6388,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1105843293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1105843290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e17d46789be1e243bd11d7e54cbc0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - Lots of rubbish.
+  shouldRepeatMessages: 0
 --- !u!1 &1130763906
 GameObject:
   m_ObjectHideFlags: 0
@@ -5540,8 +6436,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32.24002, y: -670}
-  m_SizeDelta: {x: 64.48004, y: 80}
+  m_AnchoredPosition: {x: 62.900024, y: -960}
+  m_SizeDelta: {x: 125.80005, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1130763908
 MonoBehaviour:
@@ -5675,7 +6571,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messages:
   - "It\u2019s not turned on. I need to push the switch on the wall to make it work."
-  shouldRepeatMessages: 0
 --- !u!135 &1163892277
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6003,13 +6898,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1193269939}
   - component: {fileID: 1193269940}
+  - component: {fileID: 1193269941}
   m_Layer: 0
   m_Name: Safe Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1193269939
 Transform:
   m_ObjectHideFlags: 0
@@ -6066,6 +6962,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1193269941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1193269938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e17d46789be1e243bd11d7e54cbc0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - Hey look it opened.
+  shouldRepeatMessages: 0
 --- !u!1 &1195487204
 GameObject:
   m_ObjectHideFlags: 0
@@ -6177,7 +7087,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1066851812}
-  - {fileID: 614826982}
   m_Father: {fileID: 494696125}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6253,7 +7162,6 @@ MonoBehaviour:
   messages:
   - "This is how I know where I\u2019m going."
   - A good captain never leaves home without a compass.
-  shouldRepeatMessages: 1
 --- !u!65 &1239653778
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6547,6 +7455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1297444137}
   - component: {fileID: 1297444138}
+  - component: {fileID: 1297444139}
   m_Layer: 0
   m_Name: Cupboard Closed
   m_TagString: Untagged
@@ -6611,6 +7520,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1297444139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1297444136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e17d46789be1e243bd11d7e54cbc0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - Just an old wardrobe nothing special.
+  shouldRepeatMessages: 0
 --- !u!1 &1304957333
 GameObject:
   m_ObjectHideFlags: 0
@@ -6717,6 +7640,113 @@ PolygonCollider2D:
       - {x: -3.5608795, y: -6.3735394}
       - {x: 4.4233103, y: -6.349302}
       - {x: 4.383136, y: -2.964345}
+--- !u!1 &1322640073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1322640074}
+  - component: {fileID: 1322640077}
+  - component: {fileID: 1322640076}
+  - component: {fileID: 1322640075}
+  m_Layer: 0
+  m_Name: Lid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1322640074
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1322640073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2093861156}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1322640075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1322640073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bb32596bc523946aadc40065b73c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - "It won\u2019t open, I wonder what the password is?"
+  - "Nope, still can\u2019t open it without the code."
+--- !u!60 &1322640076
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1322640073}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 5.795196, y: 1.9864519}
+      - {x: -5.9289165, y: 1.9783607}
+      - {x: -6.2399077, y: 1.874292}
+      - {x: -6.5146394, y: 1.4163874}
+      - {x: 6.3981776, y: 1.3954936}
+      - {x: 6.1284494, y: 1.8879251}
+--- !u!60 &1322640077
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1322640073}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -6.954267, y: -0.124329}
+      - {x: -7.117085, y: -1.1192687}
+      - {x: -7.1989665, y: -2.6990092}
+      - {x: -6.7079744, y: -4.214905}
+      - {x: 6.576992, y: -4.197175}
+      - {x: 7.0256004, y: -2.721216}
+      - {x: 6.9786706, y: -1.2396015}
+      - {x: 6.811018, y: -0.1062358}
 --- !u!1 &1327569564
 GameObject:
   m_ObjectHideFlags: 0
@@ -6878,8 +7908,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32.24002, y: -40}
-  m_SizeDelta: {x: 64.48004, y: 80}
+  m_AnchoredPosition: {x: 62.900024, y: -50}
+  m_SizeDelta: {x: 125.80005, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1342394974
 MonoBehaviour:
@@ -7145,7 +8175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff13c07df062454384641d40e361ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleArea: 6
+  puzzleArea: 7
+  requiredItem: 0
+  missingItemMessage: 
 --- !u!61 &1450781911
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7273,7 +8305,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1955300050}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1469708329
 MonoBehaviour:
@@ -7444,8 +8476,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32.24002, y: -400}
-  m_SizeDelta: {x: 64.48004, y: 80}
+  m_AnchoredPosition: {x: 62.900024, y: -570}
+  m_SizeDelta: {x: 125.80005, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1477466616
 MonoBehaviour:
@@ -7570,8 +8602,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32.24002, y: -490}
-  m_SizeDelta: {x: 64.48004, y: 80}
+  m_AnchoredPosition: {x: 62.900024, y: -700}
+  m_SizeDelta: {x: 125.80005, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1503172290
 MonoBehaviour:
@@ -7784,6 +8816,91 @@ PolygonCollider2D:
       - {x: -0.12337376, y: 1.4654126}
       - {x: 0.7079821, y: 1.1545453}
       - {x: 1.6310385, y: -0.22155571}
+--- !u!1 &1537389173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1537389174}
+  - component: {fileID: 1537389177}
+  - component: {fileID: 1537389176}
+  - component: {fileID: 1537389175}
+  m_Layer: 0
+  m_Name: Light Switch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1537389174
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537389173}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 773768576}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1537389175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537389173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf499a4e4e686c4a97cbf40cbe5db26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d65e41ef377130148997fad8403e9f57, type: 3}
+--- !u!114 &1537389176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537389173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bb32596bc523946aadc40065b73c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - "The light won\u2019t turn on."
+  - "Nope, it\u2019s still not working."
+--- !u!60 &1537389177
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537389173}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -4.085711, y: 2.0486681}
+      - {x: -4.050675, y: -2.0399017}
+      - {x: -1.8739845, y: -2.02349}
+      - {x: -1.9045968, y: 2.0486677}
 --- !u!1 &1537482018
 GameObject:
   m_ObjectHideFlags: 0
@@ -8047,7 +9164,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 101509721}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.40484694
+  m_Size: 0.6925891
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8120,8 +9237,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.8}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: -5}
-  m_SizeDelta: {x: -10, y: -10}
+  m_AnchoredPosition: {x: -10, y: 0}
+  m_SizeDelta: {x: -10, y: -70}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1613900224
 MonoBehaviour:
@@ -8217,6 +9334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1635081516}
   - component: {fileID: 1635081517}
+  - component: {fileID: 1635081518}
   m_Layer: 0
   m_Name: Desk draws closed
   m_TagString: Untagged
@@ -8281,6 +9399,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1635081518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1635081515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e17d46789be1e243bd11d7e54cbc0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - "My desk draws, I wonder what I\u2019ll find here."
+  shouldRepeatMessages: 0
 --- !u!1 &1640373999
 GameObject:
   m_ObjectHideFlags: 0
@@ -8324,7 +9456,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messages:
   - "Hmmm\u2026I don\u2019t remember drawing that one."
-  shouldRepeatMessages: 0
 --- !u!65 &1640374002
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8365,7 +9496,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1955300050}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1654384724
 MonoBehaviour:
@@ -8379,6 +9510,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleArea: 7
+  requiredItem: 0
+  missingItemMessage: 
 --- !u!60 &1654384725
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8441,8 +9574,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32.24002, y: -130}
-  m_SizeDelta: {x: 64.48004, y: 80}
+  m_AnchoredPosition: {x: 62.900024, y: -180}
+  m_SizeDelta: {x: 125.80005, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1654749277
 MonoBehaviour:
@@ -8641,6 +9774,83 @@ PolygonCollider2D:
       - {x: -7.431314, y: -0.009235978}
       - {x: 8.158194, y: -0.010839403}
       - {x: 15.540051, y: 9.107149}
+--- !u!1 &1672992615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1672992616}
+  - component: {fileID: 1672992618}
+  - component: {fileID: 1672992617}
+  m_Layer: 0
+  m_Name: Boat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1672992616
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1672992615}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 614826982}
+  m_Father: {fileID: 494696125}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1672992617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1672992615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e17d46789be1e243bd11d7e54cbc0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - "My toy boat, what\u2019s it doing all the way out there?"
+  shouldRepeatMessages: 0
+--- !u!114 &1672992618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1672992615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f2534dfef5f37e4a8b270b821ae65e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adjustmentInfo:
+  - aspectString: 5:4
+    aspect: 1.25
+    position: {x: 0, y: -0.24, z: 0}
+    scale: {x: 0.8, y: 0.8, z: 1}
+  - aspectString: 4:3
+    aspect: 1.3333334
+    position: {x: 0, y: -0.24, z: 0}
+    scale: {x: 0.8, y: 0.8, z: 1}
+  - aspectString: 3:2
+    aspect: 1.5
+    position: {x: 0, y: -0.24, z: 0}
+    scale: {x: 0.9, y: 0.9, z: 1}
+  - aspectString: 16:10
+    aspect: 1.6
+    position: {x: 0, y: -0.24, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+  - aspectString: 16:9
+    aspect: 1.7777778
+    position: {x: 0, y: -0.24, z: 0}
+    scale: {x: 1.05, y: 1.05, z: 1}
 --- !u!1 &1680258895
 GameObject:
   m_ObjectHideFlags: 0
@@ -8851,7 +10061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d032e6f45d57e4e40895e590fcc1b9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleArea: 9
+  puzzleArea: 10
 --- !u!65 &1710595229
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8889,7 +10099,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1711941209}
   m_LocalRotation: {x: -0, y: -0, z: -0.09688612, w: 0.9952955}
-  m_LocalPosition: {x: 2.757, y: 1.456, z: 0}
+  m_LocalPosition: {x: 2.757, y: 1.456, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1475214160}
@@ -9100,7 +10310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d032e6f45d57e4e40895e590fcc1b9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleArea: 8
+  puzzleArea: 9
 --- !u!65 &1717001091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9266,7 +10476,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messages:
   - Look Teddy found the treasure.
-  shouldRepeatMessages: 0
 --- !u!65 &1729818084
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9279,6 +10488,93 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.33, y: 0.5, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1730350265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1730350266}
+  - component: {fileID: 1730350268}
+  - component: {fileID: 1730350267}
+  - component: {fileID: 1730350269}
+  m_Layer: 0
+  m_Name: Toy Box
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1730350266
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1730350265}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 691865145}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1730350267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1730350265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bb32596bc523946aadc40065b73c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - "It\u2019s locked!"
+  - Who put a padlock on my toy box?
+--- !u!60 &1730350268
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1730350265}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 19.2, y: 16.8}
+    newSize: {x: 19.2, y: 16.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 4.7217917, y: 2.5562658}
+      - {x: -4.9796233, y: 2.3980663}
+      - {x: -7.3857145, y: 1.1913437}
+      - {x: -6.2513633, y: -6.21496}
+      - {x: 6.424597, y: -5.945368}
+      - {x: 7.3447576, y: 1.4739885}
+--- !u!114 &1730350269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1730350265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f372b3700cbd9840a96b798f748a1be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toyBoxUnlocked: {fileID: 442507942}
 --- !u!1 &1753817953
 GameObject:
   m_ObjectHideFlags: 0
@@ -9288,6 +10584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1753817954}
   - component: {fileID: 1753817955}
+  - component: {fileID: 1753817956}
   m_Layer: 0
   m_Name: LightSwitch Open
   m_TagString: Untagged
@@ -9350,6 +10647,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1753817956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1753817953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e17d46789be1e243bd11d7e54cbc0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - Oh this looks dangerous.
+  shouldRepeatMessages: 0
 --- !u!1 &1767636601
 GameObject:
   m_ObjectHideFlags: 0
@@ -9501,7 +10812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d032e6f45d57e4e40895e590fcc1b9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleArea: 10
+  puzzleArea: 11
 --- !u!65 &1808364246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9557,7 +10868,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messages:
   - "That\u2019s Goeorge2 he\u2019s the twin brother of my other Octopus George."
-  shouldRepeatMessages: 0
 --- !u!135 &1808973334
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9611,7 +10921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d032e6f45d57e4e40895e590fcc1b9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleArea: 4
+  puzzleArea: 5
 --- !u!65 &1880628585
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9665,7 +10975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d032e6f45d57e4e40895e590fcc1b9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleArea: 3
+  puzzleArea: 4
 --- !u!65 &1929756184
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9710,8 +11020,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_AnchoredPosition: {x: 2.5, y: 0}
+  m_SizeDelta: {x: -25, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1936430404
 MonoBehaviour:
@@ -9734,18 +11044,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 25
-    m_Alignment: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 35
+    m_Alignment: 3
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "No time to go online, I have to find a way out.\u201D"
+  m_Text: 'No time to go online, I have to find a way out.     '
 --- !u!222 &1936430405
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9778,6 +11088,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1015668693}
   - {fileID: 1654384723}
   - {fileID: 347162295}
   - {fileID: 1469708328}
@@ -9970,8 +11281,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5, y: -6}
-  m_SizeDelta: {x: -10, y: -12}
+  m_AnchoredPosition: {x: 5, y: -10}
+  m_SizeDelta: {x: -10, y: -20}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1988434140
 MonoBehaviour:
@@ -10018,6 +11329,113 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!1 &2047362797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2047362798}
+  - component: {fileID: 2047362800}
+  - component: {fileID: 2047362799}
+  m_Layer: 0
+  m_Name: Teddy Bear
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2047362798
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2047362797}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436057364}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2047362799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2047362797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bb32596bc523946aadc40065b73c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messages:
+  - First mate Teddy reporting for duty Captain
+--- !u!60 &2047362800
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2047362797}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 6.246631, y: -0.45658028}
+      - {x: 6.0746584, y: -0.411964}
+      - {x: 5.582291, y: -0.23048799}
+      - {x: 5.452879, y: -0.071655944}
+      - {x: 5.1949615, y: -0.074667245}
+      - {x: 5.041852, y: -0.2377343}
+      - {x: 5.0994887, y: -0.5683785}
+      - {x: 4.966652, y: -0.7469199}
+      - {x: 4.9561462, y: -1.0287502}
+      - {x: 4.066317, y: -1.1436378}
+      - {x: 3.889479, y: -1.273799}
+      - {x: 3.8777876, y: -1.6132892}
+      - {x: 4.12949, y: -1.7214042}
+      - {x: 4.657913, y: -1.6219974}
+      - {x: 4.474677, y: -2.0216932}
+      - {x: 4.1867313, y: -2.058716}
+      - {x: 3.7276764, y: -2.2349586}
+      - {x: 3.5591278, y: -2.2486198}
+      - {x: 3.2638621, y: -2.4383135}
+      - {x: 3.1858275, y: -2.72968}
+      - {x: 3.2482786, y: -2.9363205}
+      - {x: 3.5540388, y: -3.1532419}
+      - {x: 4.4697747, y: -2.7691796}
+      - {x: 4.931552, y: -3.0421376}
+      - {x: 4.8234534, y: -3.8679447}
+      - {x: 5.148005, y: -4.0579443}
+      - {x: 5.559793, y: -4.055232}
+      - {x: 5.685582, y: -3.5967572}
+      - {x: 5.7393694, y: -2.905861}
+      - {x: 5.5915766, y: -2.63852}
+      - {x: 5.7495074, y: -2.2555184}
+      - {x: 5.9561973, y: -2.6825411}
+      - {x: 6.1373134, y: -2.7909775}
+      - {x: 6.4281106, y: -2.659637}
+      - {x: 6.459885, y: -2.4200327}
+      - {x: 6.0965767, y: -1.6410847}
+      - {x: 5.9917026, y: -1.4165549}
+      - {x: 6.2011733, y: -1.0525755}
+      - {x: 6.463528, y: -0.8825465}
+      - {x: 6.422303, y: -0.5681642}
 --- !u!1 &2063523691
 GameObject:
   m_ObjectHideFlags: 0
@@ -10185,10 +11603,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -10252,7 +11670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2093861156
 Transform:
   m_ObjectHideFlags: 0
@@ -10262,7 +11680,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 569611124}
+  - {fileID: 1322640074}
   m_Father: {fileID: 1068029465}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10358,6 +11778,7 @@ MonoBehaviour:
   navigation: {fileID: 1655565340}
   bedToys: {fileID: 1475214159}
   bin: {fileID: 4821898}
+  boat: {fileID: 1672992615}
   bookshelf: {fileID: 988511250}
   cupboard: {fileID: 103013301}
   deskDrawers: {fileID: 165368927}
@@ -10640,8 +12061,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32.24002, y: -220}
-  m_SizeDelta: {x: 64.48004, y: 80}
+  m_AnchoredPosition: {x: 62.900024, y: -310}
+  m_SizeDelta: {x: 125.80005, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2131943409
 MonoBehaviour:

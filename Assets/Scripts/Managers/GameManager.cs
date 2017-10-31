@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [Space(5)]
     [SerializeField] private GameObject bedToys;
     [SerializeField] private GameObject bin;
+    [SerializeField] private GameObject boat;
     [SerializeField] private GameObject bookshelf;
     [SerializeField] private GameObject cupboard;
     [SerializeField] private GameObject deskDrawers;
@@ -85,11 +86,20 @@ public class GameManager : MonoBehaviour
 
         switch (puzzleArea)
         {
-            case PuzzleArea.Bookshelf:
-                activePuzzleArea = bookshelf;
+            case PuzzleArea.BedToys:
+                activePuzzleArea = bedToys;
                 break;
             case PuzzleArea.Bin:
                 activePuzzleArea = bin;
+                break;
+            case PuzzleArea.Boat:
+                activePuzzleArea = boat;
+                break;
+            case PuzzleArea.Bookshelf:
+                activePuzzleArea = bookshelf;
+                break;
+            case PuzzleArea.Cupboard:
+                activePuzzleArea = cupboard;
                 break;
             case PuzzleArea.DeskDrawers:
                 activePuzzleArea = deskDrawers;
@@ -103,20 +113,14 @@ public class GameManager : MonoBehaviour
             case PuzzleArea.LockBox:
                 activePuzzleArea = lockBox;
                 break;
-            case PuzzleArea.Cupboard:
-                activePuzzleArea = cupboard;
-                break;
-            case PuzzleArea.Window:
-                activePuzzleArea = window;
+            case PuzzleArea.Safe:
+                activePuzzleArea = safe;
                 break;
             case PuzzleArea.ToyBox:
                 activePuzzleArea = toyBox;
                 break;
-            case PuzzleArea.BedToys:
-                activePuzzleArea = bedToys;
-                break;
-            case PuzzleArea.Safe:
-                activePuzzleArea = safe;
+            case PuzzleArea.Window:
+                activePuzzleArea = window;
                 break;
             default:
                 throw new UnityException("No code for this enum!");
@@ -168,4 +172,4 @@ public class GameManager : MonoBehaviour
     }
 }
 
-public enum PuzzleArea { BedToys, Bin, Bookshelf, Cupboard, DeskDrawers, Door, LightSwitch, LockBox, Safe, ToyBox, Window }
+public enum PuzzleArea { BedToys, Bin, Boat, Bookshelf, Cupboard, DeskDrawers, Door, LightSwitch, LockBox, Safe, ToyBox, Window }
