@@ -392,9 +392,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15638b769af16924ab6893c9c0a69dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryItem: 2
-  selectedSprite: {fileID: 21300000, guid: 6cf7a4f44f8c5ff4bb3eed6c8572ec79, type: 3}
-  unselectedSprite: {fileID: 21300000, guid: e5c0aadb31c049f49b7116bc2662a241, type: 3}
+  inventoryItem:
+    inventoryItemType: 3
+    selectedSprite: {fileID: 21300000, guid: 6cf7a4f44f8c5ff4bb3eed6c8572ec79, type: 3}
+    unselectedSprite: {fileID: 21300000, guid: e5c0aadb31c049f49b7116bc2662a241, type: 3}
 --- !u!60 &42243801
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1915,6 +1916,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85e7ae48790fec4192dc9742344ea0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryItem:
+    inventoryItemType: 0
+    selectedSprite: {fileID: 0}
+    unselectedSprite: {fileID: 0}
 --- !u!114 &422526813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2536,7 +2541,6 @@ RectTransform:
   - {fileID: 1130763907}
   - {fileID: 1030196681}
   - {fileID: 422526809}
-  - {fileID: 2022724665}
   m_Father: {fileID: 1988434139}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2668,7 +2672,7 @@ MonoBehaviour:
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
-  m_DecelerationRate: 0.135
+  m_DecelerationRate: 0.1
   m_ScrollSensitivity: 10
   m_Viewport: {fileID: 1988434139}
   m_HorizontalScrollbar: {fileID: 0}
@@ -2917,9 +2921,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15638b769af16924ab6893c9c0a69dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryItem: 7
-  selectedSprite: {fileID: 21300000, guid: 870f06fe7a5de7f46987bd14a07b9566, type: 3}
-  unselectedSprite: {fileID: 21300000, guid: 4f6149514fb8ef446a8ea0540c16e23d, type: 3}
+  inventoryItem:
+    inventoryItemType: 8
+    selectedSprite: {fileID: 21300000, guid: 870f06fe7a5de7f46987bd14a07b9566, type: 3}
+    unselectedSprite: {fileID: 21300000, guid: 4f6149514fb8ef446a8ea0540c16e23d, type: 3}
 --- !u!60 &629473489
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3475,6 +3480,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85e7ae48790fec4192dc9742344ea0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryItem:
+    inventoryItemType: 0
+    selectedSprite: {fileID: 0}
+    unselectedSprite: {fileID: 0}
 --- !u!114 &733058677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3654,9 +3663,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15638b769af16924ab6893c9c0a69dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryItem: 4
-  selectedSprite: {fileID: 21300000, guid: 79d4a4c1349e98a4abcbb66d24ecfe60, type: 3}
-  unselectedSprite: {fileID: 21300000, guid: 779f9e0afbd04ce46a7880858d18704a, type: 3}
+  inventoryItem:
+    inventoryItemType: 5
+    selectedSprite: {fileID: 21300000, guid: 79d4a4c1349e98a4abcbb66d24ecfe60, type: 3}
+    unselectedSprite: {fileID: 21300000, guid: 779f9e0afbd04ce46a7880858d18704a, type: 3}
 --- !u!60 &765181989
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4161,6 +4171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85e7ae48790fec4192dc9742344ea0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryItem:
+    inventoryItemType: 0
+    selectedSprite: {fileID: 0}
+    unselectedSprite: {fileID: 0}
 --- !u!114 &959298375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4600,6 +4614,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85e7ae48790fec4192dc9742344ea0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryItem:
+    inventoryItemType: 0
+    selectedSprite: {fileID: 0}
+    unselectedSprite: {fileID: 0}
 --- !u!114 &1030196685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5151,6 +5169,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85e7ae48790fec4192dc9742344ea0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryItem:
+    inventoryItemType: 0
+    selectedSprite: {fileID: 0}
+    unselectedSprite: {fileID: 0}
 --- !u!114 &1130763911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5234,9 +5256,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15638b769af16924ab6893c9c0a69dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryItem: 1
-  selectedSprite: {fileID: 21300000, guid: c7a529b36ad7f8142bd6f38bae2dfe9c, type: 3}
-  unselectedSprite: {fileID: 21300000, guid: a93cf957304eaf347bc4ce3729cd1a01, type: 3}
+  inventoryItem:
+    inventoryItemType: 2
+    selectedSprite: {fileID: 21300000, guid: c7a529b36ad7f8142bd6f38bae2dfe9c, type: 3}
+    unselectedSprite: {fileID: 21300000, guid: a93cf957304eaf347bc4ce3729cd1a01, type: 3}
 --- !u!60 &1179677363
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5762,9 +5785,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15638b769af16924ab6893c9c0a69dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryItem: 3
-  selectedSprite: {fileID: 21300000, guid: dd92c4d8eb6ca34409ecae6dca1b0458, type: 3}
-  unselectedSprite: {fileID: 21300000, guid: 772feebb09e6bc0439af339727b45722, type: 3}
+  inventoryItem:
+    inventoryItemType: 4
+    selectedSprite: {fileID: 21300000, guid: dd92c4d8eb6ca34409ecae6dca1b0458, type: 3}
+    unselectedSprite: {fileID: 21300000, guid: 772feebb09e6bc0439af339727b45722, type: 3}
 --- !u!60 &1240552801
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6346,6 +6370,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85e7ae48790fec4192dc9742344ea0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryItem:
+    inventoryItemType: 0
+    selectedSprite: {fileID: 0}
+    unselectedSprite: {fileID: 0}
 --- !u!114 &1342394977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6876,6 +6904,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85e7ae48790fec4192dc9742344ea0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryItem:
+    inventoryItemType: 0
+    selectedSprite: {fileID: 0}
+    unselectedSprite: {fileID: 0}
 --- !u!114 &1477466619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6998,6 +7030,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85e7ae48790fec4192dc9742344ea0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryItem:
+    inventoryItemType: 0
+    selectedSprite: {fileID: 0}
+    unselectedSprite: {fileID: 0}
 --- !u!114 &1503172293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7771,6 +7807,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85e7ae48790fec4192dc9742344ea0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryItem:
+    inventoryItemType: 0
+    selectedSprite: {fileID: 0}
+    unselectedSprite: {fileID: 0}
 --- !u!114 &1654749280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8185,9 +8225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15638b769af16924ab6893c9c0a69dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryItem: 9
-  selectedSprite: {fileID: 21300000, guid: 4ea8aaa942624eb46af895a49653b054, type: 3}
-  unselectedSprite: {fileID: 21300000, guid: 0a3275c4973491840a3c9d8a3b7d1787, type: 3}
+  inventoryItem:
+    inventoryItemType: 10
+    selectedSprite: {fileID: 21300000, guid: 4ea8aaa942624eb46af895a49653b054, type: 3}
+    unselectedSprite: {fileID: 21300000, guid: 0a3275c4973491840a3c9d8a3b7d1787, type: 3}
 --- !u!60 &1711941212
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9110,128 +9151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
---- !u!1 &2022724664
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2022724665}
-  - component: {fileID: 2022724667}
-  - component: {fileID: 2022724666}
-  - component: {fileID: 2022724669}
-  - component: {fileID: 2022724668}
-  m_Layer: 5
-  m_Name: Slot (11)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2022724665
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2022724664}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 520180083}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32.24002, y: -940}
-  m_SizeDelta: {x: 64.48004, y: 80}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2022724666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2022724664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5efe7aba3cebc184e88daa2799925844, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &2022724667
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2022724664}
---- !u!114 &2022724668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2022724664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d85e7ae48790fec4192dc9742344ea0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2022724669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2022724664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 2022724666}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2063523691
 GameObject:
   m_ObjectHideFlags: 0
@@ -9274,9 +9193,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15638b769af16924ab6893c9c0a69dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryItem: 6
-  selectedSprite: {fileID: 21300000, guid: 8c7cd32f05f0fc74d8c173dd06a9a114, type: 3}
-  unselectedSprite: {fileID: 21300000, guid: 79d0879e18c56ed45b5f6cb4b11034bf, type: 3}
+  inventoryItem:
+    inventoryItemType: 7
+    selectedSprite: {fileID: 21300000, guid: 8c7cd32f05f0fc74d8c173dd06a9a114, type: 3}
+    unselectedSprite: {fileID: 21300000, guid: 79d0879e18c56ed45b5f6cb4b11034bf, type: 3}
 --- !u!60 &2063523694
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9697,9 +9617,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryImage: {fileID: 1613900224}
-  selectedInventoryBag: {fileID: 21300000, guid: ffdd8263956c93746be9d316c29a1229,
+  inventoryBagSelected: {fileID: 21300000, guid: ffdd8263956c93746be9d316c29a1229,
     type: 3}
-  unselectedInventoryBag: {fileID: 21300000, guid: b1e439337229f4243a6d36f05c10febe,
+  inventoryBagUnselected: {fileID: 21300000, guid: b1e439337229f4243a6d36f05c10febe,
     type: 3}
   slotsParentObject: {fileID: 529520113}
   slots:
@@ -9713,8 +9633,28 @@ MonoBehaviour:
   - {fileID: 1130763910}
   - {fileID: 1030196684}
   - {fileID: 422526812}
-  - {fileID: 2022724668}
   emptySlot: {fileID: 21300000, guid: 5efe7aba3cebc184e88daa2799925844, type: 3}
+  allWires:
+    inventoryItemType: 11
+    selectedSprite: {fileID: 21300000, guid: f6fb4777357214549a811b25b4deb06c, type: 3}
+    unselectedSprite: {fileID: 21300000, guid: 9778885138a923645a2c904c96b74ca9, type: 3}
+  itemCombinations:
+  - title: WireSnips + BlackWireSpool
+    firstItem: 10
+    secondItem: 2
+    gainedItem:
+      inventoryItemType: 1
+      selectedSprite: {fileID: 21300000, guid: 8c7381a527fbefe4ba2359c7949c9220, type: 3}
+      unselectedSprite: {fileID: 21300000, guid: 04900e922c368ca42aeea70f60c9c6e9,
+        type: 3}
+  - title: WireSnips + RedWireSpool
+    firstItem: 10
+    secondItem: 7
+    gainedItem:
+      inventoryItemType: 6
+      selectedSprite: {fileID: 21300000, guid: c2a54122f40972f469460ab959823a32, type: 3}
+      unselectedSprite: {fileID: 21300000, guid: 08c063b32f437cd4480723dca231e1ca,
+        type: 3}
 --- !u!1 &2131943407
 GameObject:
   m_ObjectHideFlags: 0
@@ -9796,6 +9736,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85e7ae48790fec4192dc9742344ea0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryItem:
+    inventoryItemType: 0
+    selectedSprite: {fileID: 0}
+    unselectedSprite: {fileID: 0}
 --- !u!114 &2131943412
 MonoBehaviour:
   m_ObjectHideFlags: 0
