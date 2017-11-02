@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(BookSorter))]
+[CustomEditor(typeof(Bookshelf))]
 public class BookSorterEditor : Editor
 {
-    private BookSorter bookSorter;
+    private Bookshelf bookSorter;
 
     private BoxCollider2D[] bookColliders;
     private List<SpriteRenderer> books;
@@ -16,7 +16,7 @@ public class BookSorterEditor : Editor
     {
         base.OnInspectorGUI();
 
-        bookSorter = (BookSorter)target;
+        bookSorter = (Bookshelf)target;
 
         if (bookSorter.books.Count != 10)
         {

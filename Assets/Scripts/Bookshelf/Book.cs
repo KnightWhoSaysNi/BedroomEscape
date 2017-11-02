@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class Book : MonoBehaviour
 {
     [SerializeField]
-    private BookSorter bookSorter;
+    private Bookshelf bookshelf;
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
@@ -20,7 +20,7 @@ public class Book : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            bookSorter.SelectedBook = spriteRenderer;
+            bookshelf.SelectedBook = spriteRenderer;
         }
     }
 }

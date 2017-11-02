@@ -2,13 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BookSorter : MonoBehaviour
+public class Bookshelf : MonoBehaviour
 {
     private static Vector3 normalScale = new Vector3(1, 1, 1);
     private static Vector3 selectedScale = new Vector3(1.2f, 1.2f, 1);
 
     private Transform myTransform;
 
+    [SerializeField] private GameObject bookshelfGameObject;
+    [SerializeField] private GameObject rewardBookGameObject;
+    [SerializeField, Space(5)] private CanvasGroup fader;
+    [SerializeField] private float fadeStartDelay;
+    [SerializeField] private float fadeTime;
+
+    [Space(10)]
     public List<SpriteRenderer> books;
     [SerializeField]
     private List<SpriteRenderer> orderedBooks;
@@ -56,13 +63,6 @@ public class BookSorter : MonoBehaviour
                 CheckBookOrder();
                 selectedBook = null;
             }
-        }
-    }
-    public bool IsPuzzleSolved
-    {
-        get
-        {
-            return isPuzzleSolved;
         }
     }
 
@@ -140,8 +140,45 @@ public class BookSorter : MonoBehaviour
             }
         }
 
+        // If this is reached the player has sorted the books in the correct order
         isPuzzleSolved = true;
         AudioManager.Instance.PlayPuzzleSolvedAudio();
-        // TODO give player something
+        StartCoroutine(FadeToRewardBook());
+    }
+
+    private IEnumerator FadeToRewardBook()
+    {
+        // Fade start delay
+        while (fadeStartDelay > 0)
+        {
+            fadeStartDelay -= Time.deltaTime;
+            yield return null;
+        }
+
+        // Activate to block additional clicks
+        fader.gameObject.SetActive(true);
+
+        // Fade out
+        while (fader.alpha < 1)
+        {
+            fader.alpha += (1 / fadeTime) * Time.deltaTime;
+            yield return null;
+        }
+
+        // While the screen is black activate reward book
+        rewardBookGameObject.SetActive(true);
+
+        // Fade in
+        while (fader.alpha > 0)
+        {
+            fader.alpha -= (1 / fadeTime) * Time.deltaTime;
+            yield return null;
+        }
+
+        // Deactivate to allow clicks
+        fader.gameObject.SetActive(false);
+
+        // Deactivate bookshelf and this script (which is why this must be called last)
+        bookshelfGameObject.SetActive(false);
     }
 }
