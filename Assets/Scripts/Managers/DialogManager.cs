@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogManager : MonoBehaviour
+public class DialogManager : Manager
 {
     [SerializeField] private GameObject dialogBox;
     [SerializeField] private Text dialogBoxText;
@@ -17,7 +17,7 @@ public class DialogManager : MonoBehaviour
     {
         get
         {
-            if (instance == null)
+            if (instance == null && !isApplicationClosing)
             {
                 throw new UnityException("Someone is calling DialogManager.Instance before it is set! Change script execution order.");
             }

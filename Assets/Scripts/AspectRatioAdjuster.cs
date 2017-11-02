@@ -5,7 +5,8 @@ using UnityEngine;
 public class AspectRatioAdjuster : MonoBehaviour
 {
     [SerializeField]
-    private List<AdjustmentInfo> adjustmentInfo;    
+    private List<AdjustmentInfo> adjustmentInfo;
+    private float ratioDifference;
 
     private void Start()
     {
@@ -13,10 +14,12 @@ public class AspectRatioAdjuster : MonoBehaviour
 
         for (int i = 0; i < adjustmentInfo.Count; i++)
         {
-            if (cameraAspect == adjustmentInfo[i].aspect)
+            ratioDifference = Mathf.Abs(cameraAspect - adjustmentInfo[i].aspect);
+
+            if (ratioDifference <= 0.001f)
             {
-                transform.position = adjustmentInfo[i].position;
                 transform.localScale = adjustmentInfo[i].scale;
+                transform.position = adjustmentInfo[i].position;
                 break;
             }
         }

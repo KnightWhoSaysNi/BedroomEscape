@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class AudioManager : MonoBehaviour
+public class AudioManager : Manager
 {
     private AudioSource audioSource;
 
@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     {
         get
         {
-            if (instance == null)
+            if (instance == null && !isApplicationClosing)
             {
                 throw new UnityException("Someone is calling AudioManager.Instance before it is set! Change script execution order.");
             }
@@ -51,11 +51,12 @@ public class AudioManager : MonoBehaviour
         PlayAudioClip(bookSelected);
     }
     
-    public void PlayAudioClip(AudioClip audioClip)
+    public void PlayAudioClip(AudioClip audioClip, float volumePercent = 100)
     {
         if (audioClip != null)
         {
             audioSource.clip = audioClip;
+            audioSource.volume = volumePercent / 100f;
             audioSource.Play();
         }
     }
@@ -66,5 +67,4 @@ public class AudioManager : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
     }    
-
 }

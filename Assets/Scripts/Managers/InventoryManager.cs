@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : Manager
 {
     [Header("Inventory Sprites"), Space(3)]
     [SerializeField] private Image inventoryImage;
@@ -39,7 +39,7 @@ public class InventoryManager : MonoBehaviour
     {
         get
         {
-            if (instance == null)
+            if (instance == null && !isApplicationClosing)
             {
                 throw new UnityException("Someone is calling InventoryManager.Instance before it is set! Change script execution order.");
             }
@@ -62,9 +62,15 @@ public class InventoryManager : MonoBehaviour
     }
     #endregion
 
-    public bool IsItemSelected(InventoryItemType itemType)
+    public bool IsItemActive(InventoryItemType itemType)
     {
         return activeItem.inventoryItemType == itemType;
+    }
+
+    public void UseActiveItem()
+    {
+        RemoveInventoryItem(activeItem.inventoryItemType);
+        SortSlots();
     }
 
     public void RegisterSlotAction(Slot actionSlot)
@@ -147,22 +153,26 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void ToggleInventory()
+    public void SetInventory(bool isOpen)
     {
-        isInventoryOpen = !isInventoryOpen;
+        isInventoryOpen = isOpen;
 
         inventoryImage.sprite = isInventoryOpen ? inventoryBagSelected : inventoryBagUnselected;
         slotsParentObject.SetActive(isInventoryOpen);
 
-        if (!isInventoryOpen)
+        if (!isInventoryOpen && activeSlot != null)
         {
-            // Inventory is closing, so deselect active item slot
-            for (int i = 0; i < slots.Length; i++)
-            {
-                slots[i].Deselect();
-                activeSlot = null;
-            }
+            // Inventory is closing, so deselect active item and item slot
+            activeSlot.Deselect();
+            activeSlot = null;
+            activeItem.inventoryItemType = InventoryItemType.Nothing;
         }
+    }
+
+    public void ToggleInventory()
+    {
+        isInventoryOpen = !isInventoryOpen;
+        SetInventory(isInventoryOpen);
     }
 
     private void Awake()
@@ -220,8 +230,8 @@ public class InventoryManager : MonoBehaviour
         {
             if (slots[i].inventoryItem.inventoryItemType == itemToRemove)
             {
-                slots[i].ClearSlot(emptySlot);
                 allInventoryItems.Remove(slots[i].inventoryItem);
+                slots[i].ClearSlot(emptySlot);
                 return;
             }
         }

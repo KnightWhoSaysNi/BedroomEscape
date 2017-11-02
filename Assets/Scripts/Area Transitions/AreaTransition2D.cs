@@ -17,14 +17,14 @@ public class AreaTransition2D : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (requiredItem != InventoryItemType.Nothing && !InventoryManager.Instance.IsItemSelected(requiredItem))
+            if (requiredItem != InventoryItemType.Nothing && !InventoryManager.Instance.IsItemActive(requiredItem))
             {
                 // Item is required and player doesn't have it yet
                 DialogManager.Instance.DisplayMessage(missingItemMessage);
             }
             else
             {
-                // Item isn't required for area transition so just go to that area
+                // Item isn't required for area transition OR the player has the required item
                 GameManager.Instance.GoToPuzzleArea(puzzleArea);
             }
         }

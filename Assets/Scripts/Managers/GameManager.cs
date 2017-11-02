@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Manager
 {
     public GameObject perspectiveCamera;
     public GameObject orthographicCamera;
 
+    [Header("Game Menu")]
+    [SerializeField] private GameObject inventory;
+    [SerializeField] private GameObject gameMenu;
+    private bool isGamePaused;
+
     [Space(10)]
-    [SerializeField] private GameObject navigation;
+    [SerializeField] private GameObject backButton;
     [Space(5)]
     [SerializeField] private GameObject bedToys;
     [SerializeField] private GameObject bin;
@@ -20,7 +25,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject lightSwitch;
     [SerializeField] private GameObject lockBox;
     [SerializeField] private GameObject safe;
-    [SerializeField] private GameObject toyBox;
+    [SerializeField] private GameObject toyBoxClosed;
+    [SerializeField] private GameObject toyBoxOpened;
     [SerializeField] private GameObject window;
     [Space(10)]
     [SerializeField] private CanvasGroup fadeCanvasGroup;
@@ -36,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         get
         {
-            if (instance == null)
+            if (instance == null && !isApplicationClosing)
             {
                 throw new UnityException("Someone is calling GameManager.Instance before it is set! Change script execution order.");
             }
@@ -59,6 +65,24 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region - Game Menu -
+
+    public void Play()
+    {
+        ToggleGameMenu();
+    }
+
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
+    #endregion
+
     public void GoToPuzzleArea(PuzzleArea puzzleArea)
     {
         SetActivePuzzleArea(puzzleArea);        
@@ -75,7 +99,24 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         InitializeSingleton();
-    }    
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleGameMenu();
+        }
+    }
+
+    private void ToggleGameMenu()
+    {
+        isGamePaused = !isGamePaused;
+        Time.timeScale = isGamePaused ? 0 : 1;
+
+        inventory.SetActive(!isGamePaused);
+        gameMenu.SetActive(isGamePaused);
+    }
 
     private void SetActivePuzzleArea(PuzzleArea puzzleArea)
     {
@@ -116,8 +157,11 @@ public class GameManager : MonoBehaviour
             case PuzzleArea.Safe:
                 activePuzzleArea = safe;
                 break;
-            case PuzzleArea.ToyBox:
-                activePuzzleArea = toyBox;
+            case PuzzleArea.ToyBoxClosed:
+                activePuzzleArea = toyBoxClosed;
+                break;
+            case PuzzleArea.ToyBoxOpened:
+                activePuzzleArea = toyBoxOpened;
                 break;
             case PuzzleArea.Window:
                 activePuzzleArea = window;
@@ -145,7 +189,7 @@ public class GameManager : MonoBehaviour
 
         // Activate puzzle area
         activePuzzleArea.SetActive(!isBedroomActive);
-        navigation.SetActive(!isBedroomActive);
+        backButton.SetActive(!isBedroomActive);
 
         // Deactivate last puzzle area, if there was one
         if (previousPuzzleArea != null)
@@ -172,4 +216,4 @@ public class GameManager : MonoBehaviour
     }
 }
 
-public enum PuzzleArea { BedToys, Bin, Boat, Bookshelf, Cupboard, DeskDrawers, Door, LightSwitch, LockBox, Safe, ToyBox, Window }
+public enum PuzzleArea { BedToys, Bin, Boat, Bookshelf, Cupboard, DeskDrawers, Door, LightSwitch, LockBox, Safe, ToyBoxClosed, ToyBoxOpened, Window }

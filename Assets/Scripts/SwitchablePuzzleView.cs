@@ -14,9 +14,14 @@ public class SwitchablePuzzleView : MonoBehaviour
     [SerializeField] private GameObject transitionObject;
     [SerializeField] private AudioClip transitionAudioClip;
 
+    private void Start()
+    {
+        // For disabling the script in editor
+    }
+
     private void OnMouseDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (this.enabled && !EventSystem.current.IsPointerOverGameObject())
         {
             PuzzleViewManager.Instance.ChangePuzzleViews(objectToActivate, objectToDeactivate, audioClip, transitionObject, transitionAudioClip);
         }
