@@ -6,7 +6,7 @@ using UnityEditor;
 [CustomEditor(typeof(Bookshelf))]
 public class BookSorterEditor : Editor
 {
-    private Bookshelf bookSorter;
+    private Bookshelf bookshelf;
 
     private BoxCollider2D[] bookColliders;
     private List<SpriteRenderer> books;
@@ -16,9 +16,9 @@ public class BookSorterEditor : Editor
     {
         base.OnInspectorGUI();
 
-        bookSorter = (Bookshelf)target;
+        bookshelf = (Bookshelf)target;
 
-        if (bookSorter.books.Count != 10)
+        if (bookshelf.books.Count != 10)
         {
             MonoBehaviour.print("Populate all books");
         }              
@@ -31,7 +31,7 @@ public class BookSorterEditor : Editor
 
     public void SortBooks()
     {
-        books = bookSorter.books;
+        books = bookshelf.books;
         bookColliders = new BoxCollider2D[books.Count];
         bookWidths = new float[books.Count];
 
@@ -50,8 +50,10 @@ public class BookSorterEditor : Editor
             totalWidthOfBooks += bookWidths[i];
         }
 
-        // Start position of the first book is negative half width of all books (so that books are centered before more precise position is set in editor)
-        Vector3 bookPosition = new Vector3(-totalWidthOfBooks / 2f + bookSorter.transform.position.x, bookSorter.transform.position.y, 0);
+        // Start position of the first book is negative half width of all books plus position.x (so that books are centered before more precise position is set in editor)
+        Vector3 bookPosition = new Vector3(-totalWidthOfBooks / 2f + bookshelf.transform.position.x, bookshelf.transform.position.y, 0);
+        // Since books don't have the same width half width - offset.x of the first book must be added
+        bookPosition.x += bookWidths[0] / 2 - bookColliders[0].offset.x;
         books[0].transform.position = bookPosition;
 
         // Position all other books

@@ -94,8 +94,10 @@ public class Bookshelf : MonoBehaviour
 
     private void SortBooks()
     {
-        // Start position of the first book is negative half width of all books (plus position.x) so that they are always centered
+        // Start position of the first book is negative half width of all books plus myPosition.x so that they are always centered
         Vector3 bookPosition = new Vector3(-totalWidthOfBooks / 2f + myTransform.position.x, myTransform.position.y, 0);
+        // Since books don't have the same width half width - offset.x of the first book must be added
+        bookPosition.x += bookWidths[0] / 2 - bookColliders[0].offset.x;
         books[0].transform.position = bookPosition;
 
         // Position all other books
