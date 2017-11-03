@@ -8,6 +8,7 @@ public class Bookshelf : MonoBehaviour
     private static Vector3 selectedScale = new Vector3(1.2f, 1.2f, 1);
 
     private Transform myTransform;
+    private bool isFirstSorting;
 
     [SerializeField] private GameObject bookshelfGameObject;
     [SerializeField] private GameObject rewardBookGameObject;
@@ -22,7 +23,7 @@ public class Bookshelf : MonoBehaviour
     private BoxCollider2D[] bookColliders;
     private float[] bookWidths;
     float totalWidthOfBooks;
-        
+
     private SpriteRenderer selectedBook;
     private bool isPuzzleSolved;
 
@@ -66,7 +67,7 @@ public class Bookshelf : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         myTransform = transform;
 
@@ -79,26 +80,24 @@ public class Bookshelf : MonoBehaviour
         bookColliders = new BoxCollider2D[books.Count];
         bookWidths = new float[books.Count];
 
-        for (int i = 0; i < books.Count; i++)
-        {
-            // Populate colliders array
-            bookColliders[i] = books[i].GetComponent<BoxCollider2D>();
-            
-            // Populate widths array 
-            bookWidths[i] = bookColliders[i].bounds.size.x;
-
-            // Add current book's width to total width
-            totalWidthOfBooks += bookWidths[i];
-        }
+        isFirstSorting = true;
+        GetImportantMeasurements();
     }
 
     private void SortBooks()
     {
-        // Start position of the first book is negative half width of all books plus myPosition.x so that they are always centered
+        // In 16:9 resolution the parent game object is scaled up and because of that this "hotfix" is used so that arrays have the correct values
+        if (isFirstSorting)
+        {
+            isFirstSorting = false;
+            GetImportantMeasurements();
+        }
+
+        // Start position of the first book is negative half width of all books (plus position.x) so that they are always centered
         Vector3 bookPosition = new Vector3(-totalWidthOfBooks / 2f + myTransform.position.x, myTransform.position.y, 0);
         // Since books don't have the same width half width - offset.x of the first book must be added
         bookPosition.x += bookWidths[0] / 2 - bookColliders[0].offset.x;
-        books[0].transform.position = bookPosition;
+        books[0].transform.position = bookPosition; // with this the leftmost part of the first book will always be in/start from the same position
 
         // Position all other books
         for (int i = 1; i < books.Count; i++)
@@ -126,7 +125,7 @@ public class Bookshelf : MonoBehaviour
         BoxCollider2D tempCollider = bookColliders[firstIndex];
         bookColliders[firstIndex] = bookColliders[secondIndex];
         bookColliders[secondIndex] = tempCollider;
-        
+
         float tempWidth = bookWidths[firstIndex];
         bookWidths[firstIndex] = bookWidths[secondIndex];
         bookWidths[secondIndex] = tempWidth;
@@ -182,5 +181,24 @@ public class Bookshelf : MonoBehaviour
 
         // Deactivate bookshelf and this script (which is why this must be called last)
         bookshelfGameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// Populates the bookColliders and bookWidths arrays and finds total width of all books.
+    /// </summary>
+    private void GetImportantMeasurements()
+    {
+        totalWidthOfBooks = 0;
+        for (int i = 0; i < books.Count; i++)
+        {
+            // Populate colliders array
+            bookColliders[i] = books[i].GetComponent<BoxCollider2D>();
+
+            // Populate widths array 
+            bookWidths[i] = bookColliders[i].bounds.size.x;
+
+            // Add current book's width to total width
+            totalWidthOfBooks += bookWidths[i];
+        }
     }
 }

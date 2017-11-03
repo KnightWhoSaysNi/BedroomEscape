@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(Bookshelf))]
-public class BookSorterEditor : Editor
+public class BookshelfEditor : Editor
 {
     private Bookshelf bookshelf;
 
@@ -53,7 +53,7 @@ public class BookSorterEditor : Editor
         // Start position of the first book is negative half width of all books plus position.x (so that books are centered before more precise position is set in editor)
         Vector3 bookPosition = new Vector3(-totalWidthOfBooks / 2f + bookshelf.transform.position.x, bookshelf.transform.position.y, 0);
         // Since books don't have the same width half width - offset.x of the first book must be added
-        bookPosition.x += bookWidths[0] / 2 - bookColliders[0].offset.x;
+        bookPosition.x += bookWidths[0] / 2 - bookColliders[0].offset.x;        
         books[0].transform.position = bookPosition;
 
         // Position all other books
