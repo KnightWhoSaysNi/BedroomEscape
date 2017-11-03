@@ -6,7 +6,7 @@ public class Safe : MonoBehaviour
 {
     [SerializeField] private PasswordPuzzle passwordPuzzle;
     [SerializeField] private MessageSender2D messageSender2D;
-    [SerializeField] private SwitchablePuzzleView switchablePuzzleView;
+    [SerializeField] private PuzzleViewSwitcher switchablePuzzleView;
 
     private void Awake()
     {

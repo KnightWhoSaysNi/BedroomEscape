@@ -10,7 +10,7 @@ public class OnEnableMessages : MonoBehaviour
 
     private bool areAllMessagesShown;
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         if (areAllMessagesShown && !shouldRepeatMessages)
         {

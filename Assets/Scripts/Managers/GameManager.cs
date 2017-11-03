@@ -5,11 +5,11 @@ using UnityEngine;
 public class GameManager : Manager
 {
     public GameObject perspectiveCamera;
-    public GameObject orthographicCamera;
+    public GameObject orthographicCamera;    
 
     [Header("Game Menu")]
-    [SerializeField] private GameObject inventory;
     [SerializeField] private GameObject gameMenu;
+    [SerializeField] private GameObject nonGameMenuUI;    
     private bool isGamePaused;
 
     [Space(10)]
@@ -114,8 +114,8 @@ public class GameManager : Manager
         isGamePaused = !isGamePaused;
         Time.timeScale = isGamePaused ? 0 : 1;
 
-        inventory.SetActive(!isGamePaused);
         gameMenu.SetActive(isGamePaused);
+        nonGameMenuUI.SetActive(!isGamePaused);
     }
 
     private void SetActivePuzzleArea(PuzzleArea puzzleArea)

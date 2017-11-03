@@ -7,12 +7,19 @@ public class PuzzleViewManager : MonoBehaviour
     private GameObject objectToActivate;
     private GameObject objectToDeactivate;
     private AudioClip audioClip;
+    private float audioClipVolume;
 
     private GameObject transitionObject;
     private AudioClip transitionAudioClip;
+    private float transitionAudioVolume;
     [SerializeField] private float transitionTime = 0.2f;
     private float transitionTimer;
     private bool isTransitionInProgress;
+
+    /// <summary>
+    /// Item required for switching/changing puzzle views.
+    /// </summary>
+    private InventoryItemType requiredItem;
 
     #region - "Singleton" Instance -
     private static PuzzleViewManager instance;
@@ -44,7 +51,7 @@ public class PuzzleViewManager : MonoBehaviour
     }
     #endregion
 
-    public void ChangePuzzleViews(GameObject objectToActivate, GameObject objectToDeactivate, AudioClip audioClip, GameObject transitionObject, AudioClip transitionAudioClip)
+    public void ChangePuzzleViews(PuzzleViewSwitchData data)
     {
         if (isTransitionInProgress)
         {
@@ -52,13 +59,32 @@ public class PuzzleViewManager : MonoBehaviour
             return;
         }
 
-        this.objectToActivate = objectToActivate;
-        this.objectToDeactivate = objectToDeactivate;
-        this.audioClip = audioClip;
+        requiredItem = data.requiredItem;
 
-        this.transitionObject = transitionObject;
-        this.transitionAudioClip = transitionAudioClip;
-        this.transitionTimer = transitionTime;
+        if (requiredItem != InventoryItemType.Nothing)
+        {
+            if (!InventoryManager.Instance.IsItemActive(requiredItem))
+            {
+                // Player either does't have the required item for changing puzzle views or is not using it
+                return;                
+            }
+            else if (data.isItemLostOnUsage)
+            {
+                // Player used the item 
+                InventoryManager.Instance.UseActiveItem();
+            }
+        }
+
+        objectToActivate = data.objectToActivate;
+        objectToDeactivate = data.objectToDeactivate;
+        audioClip = data.audioClip;
+        audioClipVolume = data.audioClipVolume;
+
+        transitionObject = data.transitionObject;
+        transitionAudioClip = data.transitionAudioClip;
+        transitionAudioVolume = data.transitionAudioVolume;
+
+        transitionTimer = transitionTime;
 
         if (transitionObject == null)
         {

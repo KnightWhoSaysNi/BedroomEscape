@@ -5,10 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : Manager
 {
-    private AudioSource audioSource;
+    [Header("Audio Sources")]
+    [SerializeField] private AudioSource ambientMusicAudioSource;
+    [SerializeField] private AudioSource soundEffectsAudioSource;
 
-    [SerializeField] private AudioClip puzzleSolved;
-    [Space(10)]
+    [Header("Often Used Audio Clips")]
+    [SerializeField] private AudioClip ambientMusic; // TODO set both clips
+    [SerializeField, Range(0, 100)] private float ambientMusicVolume;
+    [SerializeField, Space(5)] private AudioClip puzzleSolved;
     [SerializeField] private AudioClip bookSelected;
 
     #region - "Singleton" Instance -
@@ -43,7 +47,7 @@ public class AudioManager : Manager
 
     public void PlayPuzzleSolvedAudio()
     {
-        PlayAudioClip(puzzleSolved);
+        PlayAudioClip(puzzleSolved, 45);
     }
 
     public void PlayBookSelectedAudio()
@@ -55,16 +59,22 @@ public class AudioManager : Manager
     {
         if (audioClip != null)
         {
-            audioSource.clip = audioClip;
-            audioSource.volume = volumePercent / 100f;
-            audioSource.Play();
+            soundEffectsAudioSource.clip = audioClip;
+            soundEffectsAudioSource.volume = volumePercent / 100f;
+            soundEffectsAudioSource.Play();
         }
     }
 
     private void Awake()
     {
         InitializeSingleton();
+    }
 
-        audioSource = GetComponent<AudioSource>();
-    }    
+    private void Start()
+    {
+        ambientMusicAudioSource.loop = true;
+        ambientMusicAudioSource.volume = ambientMusicVolume / 100;
+        ambientMusicAudioSource.clip = ambientMusic;
+        ambientMusicAudioSource.Play();
+    }
 }

@@ -62,6 +62,19 @@ public class InventoryManager : Manager
     }
     #endregion
 
+    public bool IsItemInInventory(InventoryItemType itemType)
+    {
+        for (int i = 0; i < allInventoryItems.Count; i++)
+        {
+            if (allInventoryItems[i].inventoryItemType == itemType)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public bool IsItemActive(InventoryItemType itemType)
     {
         return activeItem.inventoryItemType == itemType;
@@ -71,6 +84,11 @@ public class InventoryManager : Manager
     {
         RemoveInventoryItem(activeItem.inventoryItemType);
         SortSlots();
+    }
+
+    public void UseItem(InventoryItemType itemType)
+    {
+        RemoveInventoryItem(itemType);
     }
 
     public void RegisterSlotAction(Slot actionSlot)
