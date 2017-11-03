@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ToyBox : MonoBehaviour
 {
     [SerializeField] private GameObject inventory;
+    [SerializeField] private GameObject rewardItemParent;
     [SerializeField, Space(5)] private Transform allToyObjectsParent;    
     [SerializeField] private GameObject hiddenObjectsScrollView;
     [SerializeField] private Transform hiddenObjectSlots;
@@ -35,6 +36,7 @@ public class ToyBox : MonoBehaviour
             if (hiddenObjects.Count == 0)
             {
                 // All hidden objects found
+                rewardItemParent.SetActive(true);
                 AudioManager.Instance.PlayPuzzleSolvedAudio();
                 InventoryManager.Instance.RegisterItemAcquisition(rewardItem);
             }
