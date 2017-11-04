@@ -10,7 +10,8 @@ public class GameManager : Manager
 
     [Header("Game Menu")]
     [SerializeField] private GameObject gameMenu;
-    [SerializeField] private GameObject nonGameMenuUI;    
+    [SerializeField] private GameObject nonGameMenuUI;
+    private bool canPauseGame;
     private bool isGamePaused;
 
     [Header("End Game Screen")]
@@ -74,6 +75,12 @@ public class GameManager : Manager
 
     public void Play()
     {
+        // Only after first clicking the play button has the game started and the player can use Escape key to open/close the game menu
+        if (!canPauseGame)
+        {            
+            canPauseGame = true;
+        }
+
         ToggleGameMenu();
     }
 
@@ -90,6 +97,7 @@ public class GameManager : Manager
 
     public void GoToEndGameScreen()
     {
+        canPauseGame = false;
         nonGameMenuUI.SetActive(false);
         StartCoroutine(FadeToEndGameScreen());
     }
@@ -120,7 +128,7 @@ public class GameManager : Manager
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (canPauseGame && Input.GetKeyDown(KeyCode.Escape))
         {
             ToggleGameMenu();
         }
