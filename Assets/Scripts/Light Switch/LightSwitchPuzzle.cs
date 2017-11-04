@@ -10,16 +10,13 @@ namespace LightSwitch
     {
         private Collider2D myCollider2D;
 
-        [Header("Light Switch Button")]
+        [Header("Light Switch Related")]
+        [SerializeField] private GameObject ceilingLight;
         [SerializeField] private LightSwitchButton lightSwitchButton;        
-
-        [Header("Box Cover")]
         [SerializeField] private GameObject lightSwitchBoxCover;
-
-        [Header("Side Wires")]
         [SerializeField] private GameObject sideWires;
 
-        [Header("Connection Points")]
+        [Space(10)]
         [SerializeField] private ConnectionPoint[] connectionPoints;
 
         [Space(5), Header("Placed Wires")]
@@ -36,6 +33,9 @@ namespace LightSwitch
         [SerializeField] private Vector3 alternativeLiveWire2Rotation;
         private bool isLiveWireConnectionFound;
         private bool areLiveWiresInDefaultPosition;
+
+        [Header("Puzzle Solved Message")]
+        [SerializeField] private string message;
 
         private SideWire activeWire;
         private ConnectionPoint firstConnectionPoint;
@@ -218,10 +218,11 @@ namespace LightSwitch
         private void OnPuzzleSolved()
         {
             AudioManager.Instance.PlayPuzzleSolvedAudio();
-            InventoryManager.Instance.UseItem(InventoryItemType.AllWires);
             HideSideWires();
             lightSwitchBoxCover.SetActive(true);
             lightSwitchButton.FixLightSwitch();
+            DialogManager.Instance.DisplayMessage(message);
+            ceilingLight.SetActive(false);
         }
     }
 }

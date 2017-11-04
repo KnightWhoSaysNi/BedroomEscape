@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Manager
 {
@@ -11,6 +12,10 @@ public class GameManager : Manager
     [SerializeField] private GameObject gameMenu;
     [SerializeField] private GameObject nonGameMenuUI;    
     private bool isGamePaused;
+
+    [Header("End Game Screen")]
+    [SerializeField] private GameObject endGameScreen;
+    [SerializeField] private float endGameFadeTime;
 
     [Space(10)]
     [SerializeField] private GameObject backButton;
@@ -83,6 +88,12 @@ public class GameManager : Manager
 
     #endregion
 
+    public void GoToEndGameScreen()
+    {
+        nonGameMenuUI.SetActive(false);
+        StartCoroutine(FadeToEndGameScreen());
+    }
+
     public void GoToPuzzleArea(PuzzleArea puzzleArea)
     {
         SetActivePuzzleArea(puzzleArea);        
@@ -99,6 +110,12 @@ public class GameManager : Manager
     private void Awake()
     {
         InitializeSingleton();
+        isGamePaused = true;
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void Update()
@@ -208,6 +225,31 @@ public class GameManager : Manager
         while (fadeCanvasGroup.alpha > 0)
         {
             fadeCanvasGroup.alpha -= (1 / fadeTime) * Time.deltaTime;
+            yield return null;
+        }
+
+        // Deactivate to allow clicks
+        fadeCanvasGroup.gameObject.SetActive(false);
+    }    
+
+    private IEnumerator FadeToEndGameScreen()
+    {        
+        fadeCanvasGroup.gameObject.SetActive(true);
+
+        // Fade out
+        while (fadeCanvasGroup.alpha < 1)
+        {
+            fadeCanvasGroup.alpha += (1 / endGameFadeTime) * Time.deltaTime;
+            yield return null;
+        }
+
+        activePuzzleArea.SetActive(false);        
+        endGameScreen.SetActive(true);
+
+        // Fade in in half the time
+        while (fadeCanvasGroup.alpha > 0)
+        {
+            fadeCanvasGroup.alpha -= (2 / endGameFadeTime) * Time.deltaTime;
             yield return null;
         }
 

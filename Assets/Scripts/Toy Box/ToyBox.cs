@@ -36,9 +36,7 @@ public class ToyBox : MonoBehaviour
             if (hiddenObjects.Count == 0)
             {
                 // All hidden objects found
-                rewardItemParent.SetActive(true);
-                AudioManager.Instance.PlayPuzzleSolvedAudio();
-                InventoryManager.Instance.RegisterItemAcquisition(rewardItem);
+                OnPuzzleSolved();
             }
         }
     }
@@ -73,7 +71,7 @@ public class ToyBox : MonoBehaviour
 
     private void OnEnable()
     {
-        InventoryManager.Instance.SetInventory(false);
+        //InventoryManager.Instance.SetInventory(false);
         inventory.SetActive(false);
 
         if (hiddenObjects.Count != 0)
@@ -92,7 +90,7 @@ public class ToyBox : MonoBehaviour
             return;
         }
 
-        InventoryManager.Instance.SetInventory(true);
+        //InventoryManager.Instance.SetInventory(true);
         inventory.SetActive(true);
 
         if (hiddenObjectsScrollView.activeSelf)
@@ -155,5 +153,13 @@ public class ToyBox : MonoBehaviour
 
         // End buffer
         GameObject.Instantiate(slotBufferPrefab, hiddenObjectSlots);
+    }
+
+    private void OnPuzzleSolved()
+    {
+        hiddenObjectsScrollView.SetActive(false);
+        rewardItemParent.SetActive(true);
+        AudioManager.Instance.PlayPuzzleSolvedAudio();
+        InventoryManager.Instance.RegisterItemAcquisition(rewardItem);
     }
 }

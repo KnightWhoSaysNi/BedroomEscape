@@ -8,6 +8,12 @@ public class MessageSender2D : MonoBehaviour
 {
     [SerializeField] private string[] messages;
     private int currentMessageIndex;
+    private bool shouldShowMessages;
+
+    public void DisableMessages()
+    {
+        shouldShowMessages = false;
+    }
 
     private void Awake()
     {
@@ -16,11 +22,13 @@ public class MessageSender2D : MonoBehaviour
             print("No messages yet on this message sender");
             return;
         }
+
+        shouldShowMessages = true;
     }
 
     private void OnMouseDown()
     {
-        if(!EventSystem.current.IsPointerOverGameObject())
+        if(shouldShowMessages && !EventSystem.current.IsPointerOverGameObject())
         {
             DialogManager.Instance.DisplayMessage(messages[currentMessageIndex]);
             currentMessageIndex = ++currentMessageIndex % messages.Length;

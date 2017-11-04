@@ -201,7 +201,6 @@ public class InventoryManager : Manager
 
     private void Start()
     {
-
         for (int i = 0; i < slots.Length; i++)
         {
             slots[i].Awake();
@@ -234,6 +233,7 @@ public class InventoryManager : Manager
             RemoveInventoryItem(InventoryItemType.BlackWires);
             RemoveInventoryItem(InventoryItemType.EarthWire);
             RemoveInventoryItem(InventoryItemType.RedWires);
+            RemoveInventoryItem(InventoryItemType.WireSnips);
 
             SortSlots();
             

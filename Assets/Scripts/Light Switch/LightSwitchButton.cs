@@ -7,6 +7,11 @@ public class LightSwitchButton : MonoBehaviour
     [Header("Skyboxes")]
     [SerializeField] private Material bedroomLightsOff;
     [SerializeField] private Material bedroomLightsOn;
+
+    [Header("Ceiling Message Sender")]
+    [SerializeField] private GameObject ceilingMessageSender;
+
+
     private MessageSender2D messageSender2D;
     private bool isLightSwitchFixed;
     private bool areLightsOn;
@@ -14,12 +19,12 @@ public class LightSwitchButton : MonoBehaviour
     public void FixLightSwitch()
     {
         isLightSwitchFixed = true;
-        messageSender2D.enabled = false;
+        messageSender2D.DisableMessages();
     }
 
     private void Awake()
     {
-        messageSender2D = GetComponent<MessageSender2D>();
+        messageSender2D = GetComponent<MessageSender2D>();        
     }
 
     private void OnMouseDown()
@@ -28,6 +33,7 @@ public class LightSwitchButton : MonoBehaviour
         {
             areLightsOn = !areLightsOn;
             RenderSettings.skybox = areLightsOn ? bedroomLightsOn : bedroomLightsOff;
+            ceilingMessageSender.SetActive(areLightsOn);
         }
     }
 }
