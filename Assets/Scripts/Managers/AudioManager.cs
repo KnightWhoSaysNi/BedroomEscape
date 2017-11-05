@@ -12,7 +12,7 @@ public class AudioManager : Manager
     [Header("Often Used Audio Clips")]
     [SerializeField] private AudioClip[] ambientMusic;
     [SerializeField, Range(0, 1)] private float ambientMusicVolume;
-    [SerializeField, Range(0, 20)] private float musicFadeLengthSeconds;
+    [SerializeField, Range(0, 20)] private float musicFadeDurationSeconds;
     private float[] ambientMusicLengths;
     private bool isFadingOut;
     private bool isFadingIn;
@@ -24,6 +24,11 @@ public class AudioManager : Manager
     [Space(5)]
     [SerializeField] private AudioClip puzzleSolved;
     [SerializeField] private AudioClip bookSelected;
+
+    [Header("Game End")]
+    [SerializeField] private float endGameFadeDuration;
+    private bool isGameFinished;
+    private bool isAudioStopped;
 
     private bool isSoundOn;
 
@@ -64,6 +69,11 @@ public class AudioManager : Manager
         soundEffectsAudioSource.mute = !isSoundOn;
     }
 
+    public void RegisterGameFinished()
+    {
+        isGameFinished = true;
+    }
+
     public void PlayPuzzleSolvedAudio()
     {
         PlayAudioClip(puzzleSolved, 45);
@@ -94,6 +104,18 @@ public class AudioManager : Manager
 
     private void Update()
     {
+        // Upon exiting the door the music fades out and stops
+        if (isGameFinished)
+        {
+            if (!isAudioStopped)
+            {
+                FadeOut(ambientMusicAudioSource, endGameFadeDuration);
+            }
+
+            return;
+        }
+
+        // Fade in and out between the ambient music tracks
         if (!isFadingOut && !isFadingIn && Time.time >= fadeStartTime)
         {
             isFadingOut = true;
@@ -101,7 +123,7 @@ public class AudioManager : Manager
 
         if (isFadingOut)
         {
-            FadeOut(ambientMusicAudioSource);
+            FadeOut(ambientMusicAudioSource, musicFadeDurationSeconds);
         }
 
         if (isFadingIn && Time.time <= fadeEndTime)
@@ -132,28 +154,36 @@ public class AudioManager : Manager
     /// </summary>
     private void FindFadeTimes()
     {
-        fadeStartTime = Time.time + (ambientMusicLengths[musicIndex] - musicFadeLengthSeconds);
-        fadeEndTime = fadeStartTime + 2 * musicFadeLengthSeconds;
+        fadeStartTime = Time.time + (ambientMusicLengths[musicIndex] - musicFadeDurationSeconds);
+        fadeEndTime = fadeStartTime + 2 * musicFadeDurationSeconds;
     }
 
-    private void FadeOut(AudioSource targetAudioSource)
+    private void FadeOut(AudioSource targetAudioSource, float fadeDuration)
     {
-        fadeInterpolationValue += Time.deltaTime * (1 / musicFadeLengthSeconds);
+        fadeInterpolationValue += Time.deltaTime * (1 / fadeDuration);
         targetAudioSource.volume = Mathf.Lerp(ambientMusicVolume, 0, fadeInterpolationValue);
 
         if (targetAudioSource.volume == 0)
         {
-            isFadingOut = false;
-            isFadingIn = true;
-            fadeInterpolationValue = 0;
+            if (isGameFinished)
+            {
+                targetAudioSource.Stop();
+                isAudioStopped = true;
+            }
+            else
+            {
+                isFadingOut = false;
+                isFadingIn = true;
+                fadeInterpolationValue = 0;
 
-            ChangeMusic();
+                ChangeMusic();
+            }
         }
     }
 
     private void FadeIn(AudioSource targetAudioSource)
     {
-        fadeInterpolationValue += Time.deltaTime * (1 / musicFadeLengthSeconds);
+        fadeInterpolationValue += Time.deltaTime * (1 / musicFadeDurationSeconds);
         targetAudioSource.volume = Mathf.Lerp(0, ambientMusicVolume, fadeInterpolationValue);
 
         if (targetAudioSource.volume == ambientMusicVolume)

@@ -6,7 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : Manager
 {
     public GameObject perspectiveCamera;
-    public GameObject orthographicCamera;    
+    public GameObject orthographicCamera;
+
+    [Header("WebGL Related")]
+    [SerializeField] private GameObject[] gameObjectsToDisable;
+    [SerializeField] private GameObject hamburgerGameMenuButton;
 
     [Header("Game Menu")]
     [SerializeField] private GameObject gameMenu;
@@ -82,6 +86,10 @@ public class GameManager : Manager
         }
 
         ToggleGameMenu();
+
+#if UNITY_WEBGL
+        hamburgerGameMenuButton.SetActive(true);
+#endif
     }
 
     public void Quit()
@@ -97,6 +105,11 @@ public class GameManager : Manager
 
     public void GoToEndGameScreen()
     {
+#if UNITY_WEBGL
+        AudioManager.Instance.RegisterGameFinished();
+        hamburgerGameMenuButton.SetActive(false);
+#endif
+
         canPauseGame = false;
         nonGameMenuUI.SetActive(false);
         StartCoroutine(FadeToEndGameScreen());
@@ -119,11 +132,22 @@ public class GameManager : Manager
     {
         InitializeSingleton();
         isGamePaused = true;
+
+#if UNITY_WEBGL
+        for (int i = 0; i < gameObjectsToDisable.Length; i++)
+        {
+            gameObjectsToDisable[i].SetActive(false);
+        }
+#endif
     }
 
-    private void Start()
+    public void ToggleGameMenu()
     {
-        
+        isGamePaused = !isGamePaused;
+        Time.timeScale = isGamePaused ? 0 : 1;
+
+        gameMenu.SetActive(isGamePaused);
+        nonGameMenuUI.SetActive(!isGamePaused);
     }
 
     private void Update()
@@ -132,15 +156,6 @@ public class GameManager : Manager
         {
             ToggleGameMenu();
         }
-    }
-
-    private void ToggleGameMenu()
-    {
-        isGamePaused = !isGamePaused;
-        Time.timeScale = isGamePaused ? 0 : 1;
-
-        gameMenu.SetActive(isGamePaused);
-        nonGameMenuUI.SetActive(!isGamePaused);
     }
 
     private void SetActivePuzzleArea(PuzzleArea puzzleArea)
@@ -253,13 +268,6 @@ public class GameManager : Manager
 
         activePuzzleArea.SetActive(false);        
         endGameScreen.SetActive(true);
-
-        // Fade in in half the time
-        while (fadeCanvasGroup.alpha > 0)
-        {
-            fadeCanvasGroup.alpha -= (2 / endGameFadeTime) * Time.deltaTime;
-            yield return null;
-        }
 
         // Deactivate to allow clicks
         fadeCanvasGroup.gameObject.SetActive(false);

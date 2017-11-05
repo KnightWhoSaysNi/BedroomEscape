@@ -22,15 +22,10 @@ namespace LightSwitch
         [Space(5), Header("Placed Wires")]
         [SerializeField] private Transform liveWire1;
         [SerializeField] private Transform liveWire2;
+        [SerializeField] private Transform liveWire1Alternative;
+        [SerializeField] private Transform liveWire2Alternative;
         [SerializeField] private GameObject earthWire;
         [SerializeField] private GameObject neutralWire;
-
-        [Header("Alternative Live Wire transforms"), Space(3)]
-        [SerializeField] private Vector3 alternativeLiveWire1Position;
-        [SerializeField] private Vector3 alternativeLiveWire1Rotation;
-        [Space(5)]
-        [SerializeField] private Vector3 alternativeLiveWire2Position;
-        [SerializeField] private Vector3 alternativeLiveWire2Rotation;
         private bool isLiveWireConnectionFound;
         private bool areLiveWiresInDefaultPosition;
 
@@ -186,16 +181,14 @@ namespace LightSwitch
                      (firstConnectionPoint.ConnectionSymbol == ConnectionSymbol.LiveB2 && secondConnectionPoint.ConnectionSymbol == ConnectionSymbol.LiveA1))
             {
                 // Alternative live wire 1 positioning   
-                liveWire1.transform.SetPositionAndRotation(alternativeLiveWire1Position, Quaternion.Euler(alternativeLiveWire1Rotation));
-                liveWire1.gameObject.SetActive(true);
+                liveWire1Alternative.gameObject.SetActive(true);
                 isWirePlaced = true;
             }
             else if ((firstConnectionPoint.ConnectionSymbol == ConnectionSymbol.LiveA2 && secondConnectionPoint.ConnectionSymbol == ConnectionSymbol.LiveB1) ||
                      (firstConnectionPoint.ConnectionSymbol == ConnectionSymbol.LiveB1 && secondConnectionPoint.ConnectionSymbol == ConnectionSymbol.LiveA2))
             {
                 // Alternative live wire 2 positioning   
-                liveWire2.transform.SetPositionAndRotation(alternativeLiveWire2Position, Quaternion.Euler(alternativeLiveWire2Rotation));
-                liveWire2.gameObject.SetActive(true);
+                liveWire2Alternative.gameObject.SetActive(true);
                 isWirePlaced = true;
             }
         }

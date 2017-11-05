@@ -7,14 +7,15 @@ public class ToyBox : MonoBehaviour
 {
     [SerializeField] private GameObject inventory;
     [SerializeField] private GameObject rewardItemParent;
-    [SerializeField, Space(5)] private Transform allToyObjectsParent;    
+    [SerializeField, Space(5)] private Transform allToyObjectsParent;
+    [SerializeField] private HiddenObject rewardHiddenObject;
     [SerializeField] private GameObject hiddenObjectsScrollView;
     [SerializeField] private Transform hiddenObjectSlots;
     [SerializeField] private Transform slotPrefab;
     [SerializeField] private Transform slotBufferPrefab;
     [Space(10)]
     [SerializeField] private int numberOfHiddenObjects;
-    private List<HiddenObject> allToyObjects;
+    private List<HiddenObject> possibleHiddenObjects;
     private HashSet<HiddenObject> hiddenObjects;
     private Dictionary<HiddenObject, Transform> slotDictionary;
 
@@ -55,11 +56,13 @@ public class ToyBox : MonoBehaviour
             return;
         }
 
-        allToyObjects = new List<HiddenObject>();
+        possibleHiddenObjects = new List<HiddenObject>();
         hiddenObjects = new HashSet<HiddenObject>();
         slotDictionary = new Dictionary<HiddenObject, Transform>();
 
-        FindAllToyObjects(childObjectCount);
+        rewardHiddenObject.ConnectToyBox(this);
+
+        FindPossibleHiddenObjects(childObjectCount);
         GenerateHiddenObjects();
         DisplayHiddenObjects();
     }
@@ -100,10 +103,10 @@ public class ToyBox : MonoBehaviour
     }    
 
     /// <summary>
-    /// Finds all toy object from the parent toy object and populates the list.
+    /// Finds all toy objects, except the reward hidden object, from the parent toy object and populates the list.
     /// </summary>
     /// <param name="childObjectCount">Number of children in toy parent.</param>
-    private void FindAllToyObjects(int childObjectCount)
+    private void FindPossibleHiddenObjects(int childObjectCount)
     {
         HiddenObject childToyObject;
 
@@ -111,10 +114,10 @@ public class ToyBox : MonoBehaviour
         {
             childToyObject = allToyObjectsParent.GetChild(i).GetComponent<HiddenObject>();
 
-            if (childToyObject != null)
+            if (childToyObject != null && childToyObject != rewardHiddenObject)
             {
                 childToyObject.ConnectToyBox(this);
-                allToyObjects.Add(childToyObject);
+                possibleHiddenObjects.Add(childToyObject);
                 childToyObject = null;
             }
         }
@@ -126,12 +129,21 @@ public class ToyBox : MonoBehaviour
     private void GenerateHiddenObjects()
     {
         int hiddenObjectIndex = 0;
-
+        int randomIndexForRewardObject = Random.Range(0, numberOfHiddenObjects);
+        
         for (int i = 0; i < numberOfHiddenObjects; i++)
         {
-            hiddenObjectIndex = Random.Range(0, allToyObjects.Count);
-            hiddenObjects.Add(allToyObjects[hiddenObjectIndex]);
-            allToyObjects.RemoveAt(hiddenObjectIndex);
+            // Add reward hidden object
+            if (i == randomIndexForRewardObject)
+            {
+                hiddenObjects.Add(rewardHiddenObject);
+                continue;
+            }
+
+            // Add random hidden object
+            hiddenObjectIndex = Random.Range(0, possibleHiddenObjects.Count);
+            hiddenObjects.Add(possibleHiddenObjects[hiddenObjectIndex]);
+            possibleHiddenObjects.RemoveAt(hiddenObjectIndex);
         }
     }
 
