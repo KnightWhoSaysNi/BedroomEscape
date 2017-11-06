@@ -1005,7 +1005,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 61259513}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -530, z: 0}
+  m_LocalPosition: {x: 0, y: -589.87665, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 641682966}
@@ -1804,7 +1804,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 101509720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 119.89024, z: 0}
+  m_LocalPosition: {x: 0, y: 133.69531, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1006837225}
@@ -2614,7 +2614,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.099999, y: 8.099999}
+    oldSize: {x: 8.1, y: 8.1}
     newSize: {x: 8.1, y: 8.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3136,7 +3136,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 19.199999, y: 16.800001}
+    oldSize: {x: 19.2, y: 16.8}
     newSize: {x: 19.2, y: 16.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3386,18 +3386,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 194731687}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0232f756fdada05409189cd95d078c4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5761768a09d78e2438dd2f9ce8708110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToActivate: {fileID: 773768575}
-  objectToDeactivate: {fileID: 1753817953}
-  audioClip: {fileID: 8300000, guid: 80f2119f513697c4ea8192a716f22140, type: 3}
-  audioVolumePercent: 25
-  transitionObject: {fileID: 0}
-  transitionAudioClip: {fileID: 0}
-  transitionAudioVolumePercent: 0
-  requiredItem: 0
-  isItemLostOnUsage: 0
+  closedLightSwitch: {fileID: 773768575}
+  boxCloseAudio: {fileID: 8300000, guid: 80f2119f513697c4ea8192a716f22140, type: 3}
+  boxCloseVolumePercent: 70.3
+  lightSwitchAreaTransition: {fileID: 873130034}
+  lightSwitchAreaTransition2D: {fileID: 1450781910}
+  lightToggle: {fileID: 873130036}
+  lightToggle2d: {fileID: 1450781912}
 --- !u!60 &194731690
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7197,7 +7195,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 19.199999, y: 16.800001}
+    oldSize: {x: 19.2, y: 16.8}
     newSize: {x: 19.2, y: 16.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -8572,7 +8570,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 529520113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5, y: -81, z: 0}
+  m_LocalPosition: {x: 3.5, y: -89.981476, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1988434139}
@@ -9313,7 +9311,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 584438326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -500.9, z: 0}
+  m_LocalPosition: {x: 0, y: -536.826, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1626988505}
@@ -10337,7 +10335,7 @@ RectTransform:
   - {fileID: 983515832}
   - {fileID: 717729007}
   m_Father: {fileID: 2080742953}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11196,7 +11194,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 717729006}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -418.5, z: 0}
+  m_LocalPosition: {x: 0, y: -464.9044, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2129167258}
@@ -11761,7 +11759,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.7199998, y: 3.7199998}
+    oldSize: {x: 3.72, y: 3.72}
     newSize: {x: 3.72, y: 3.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -11963,8 +11961,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 76592103
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e7d3d1a90ab7d41408da86fc90934623, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12494,6 +12492,7 @@ GameObject:
   - component: {fileID: 873130033}
   - component: {fileID: 873130035}
   - component: {fileID: 873130034}
+  - component: {fileID: 873130036}
   m_Layer: 0
   m_Name: Light Switch
   m_TagString: Untagged
@@ -12538,6 +12537,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.8, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &873130036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 873130032}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b173c2f1fd74d94bad74fe959f99e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSwitchAudio: {fileID: 8300000, guid: d65e41ef377130148997fad8403e9f57, type: 3}
+  audioVolumePercent: 70
+  lightsOffSkybox: {fileID: 2100000, guid: e7a343c265be08d4cbc2d6cd532e83dd, type: 2}
+  lightsOnSkybox: {fileID: 2100000, guid: 5cf6ff6b7e61b464fa279c87a18bb121, type: 2}
+  ceilingMessageSender: {fileID: 385867546}
 --- !u!1 &888380817
 GameObject:
   m_ObjectHideFlags: 0
@@ -13633,7 +13648,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1006837224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: -400, z: 0}
+  m_LocalPosition: {x: -10, y: -444.9075, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 101509721}
@@ -16930,7 +16945,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1265363293}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -945, y: 525, z: 0}
+  m_LocalPosition: {x: -945, y: 584.87665, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 822699539}
@@ -18860,6 +18875,7 @@ GameObject:
   - component: {fileID: 1450781909}
   - component: {fileID: 1450781911}
   - component: {fileID: 1450781910}
+  - component: {fileID: 1450781912}
   m_Layer: 0
   m_Name: Light Switch
   m_TagString: Untagged
@@ -18919,6 +18935,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2756624, y: 1.6615901}
   m_EdgeRadius: 0
+--- !u!114 &1450781912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450781908}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f95f136c3c3504a89cd6e3db64bd0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSwitchAudio: {fileID: 8300000, guid: d65e41ef377130148997fad8403e9f57, type: 3}
+  audioVolumePercent: 70
+  lightsOffSkybox: {fileID: 2100000, guid: e7a343c265be08d4cbc2d6cd532e83dd, type: 2}
+  lightsOnSkybox: {fileID: 2100000, guid: 5cf6ff6b7e61b464fa279c87a18bb121, type: 2}
+  ceilingMessageSender: {fileID: 385867546}
 --- !u!1 &1453166263
 GameObject:
   m_ObjectHideFlags: 0
@@ -20368,7 +20400,6 @@ GameObject:
   - component: {fileID: 1537389177}
   - component: {fileID: 1537389176}
   - component: {fileID: 1537389175}
-  - component: {fileID: 1537389178}
   m_Layer: 0
   m_Name: Light Switch Button
   m_TagString: Untagged
@@ -20444,20 +20475,6 @@ PolygonCollider2D:
       - {x: -4.050675, y: -2.0399017}
       - {x: -1.8739845, y: -2.02349}
       - {x: -1.9045968, y: 2.0486677}
---- !u!114 &1537389178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537389173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28fef3dd6ea2ffa438f90c02a6966e8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bedroomLightsOff: {fileID: 2100000, guid: e7a343c265be08d4cbc2d6cd532e83dd, type: 2}
-  bedroomLightsOn: {fileID: 2100000, guid: 5cf6ff6b7e61b464fa279c87a18bb121, type: 2}
-  ceilingMessageSender: {fileID: 385867546}
 --- !u!1 &1537482018
 GameObject:
   m_ObjectHideFlags: 0
@@ -20843,7 +20860,7 @@ RectTransform:
   - {fileID: 1626988505}
   - {fileID: 1265363294}
   m_Father: {fileID: 2080742953}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -21034,7 +21051,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.6499996, y: 2.4599998}
+    oldSize: {x: 6.65, y: 2.46}
     newSize: {x: 6.65, y: 2.46}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -21303,7 +21320,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1612962709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 88.57002, y: 400, z: 0}
+  m_LocalPosition: {x: 88.57002, y: 444.9075, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1006837225}
@@ -21419,7 +21436,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1613900222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 76.400024, y: 432, z: 0}
+  m_LocalPosition: {x: 76.400024, y: 479.90134, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 983515832}
@@ -21537,7 +21554,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1626988504}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.000030517578, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1544544497}
@@ -22382,7 +22399,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2080742953}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -23449,8 +23466,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 620441279
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a6f59201323663745bbad34b193180b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -23488,7 +23505,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ceilingLight: {fileID: 1163892274}
-  lightSwitchButton: {fileID: 1537389178}
   lightSwitchBoxCover: {fileID: 194731687}
   sideWires: {fileID: 492603707}
   connectionPoints:
@@ -23637,7 +23653,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.17, y: 1.7600001}
+    oldSize: {x: 7.17, y: 1.76}
     newSize: {x: 7.17, y: 1.76}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -24617,11 +24633,11 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1895660217}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -953.6, y: 534.57996, z: 0}
+  m_LocalPosition: {x: -953.6, y: 594.4566, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2080742953}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -25448,7 +25464,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1988434138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.900024, y: 395, z: 0}
+  m_LocalPosition: {x: -64.900024, y: 439.9075, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 520180083}
@@ -25829,7 +25845,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.8099997, y: 3.8099997}
+    oldSize: {x: 3.81, y: 3.81}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -25973,13 +25989,13 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2080742949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 960, y: 540, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 486.5, y: 304, z: 0}
+  m_LocalScale: {x: 0.50677085, y: 0.50677085, z: 0.50677085}
   m_Children:
-  - {fileID: 1680258896}
   - {fileID: 1895660218}
   - {fileID: 1552213950}
   - {fileID: 641682966}
+  - {fileID: 1680258896}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26548,7 +26564,7 @@ MonoBehaviour:
   musicFadeDurationSeconds: 0
   puzzleSolved: {fileID: 8300000, guid: 4b295a7eb96206844aad37a0c30c87b3, type: 3}
   bookSelected: {fileID: 8300000, guid: fa274e5696e05b34a9dc6d5d0ed35a24, type: 3}
-  endGameFadeDuration: 15
+  endGameFadeDuration: 17
 --- !u!82 &2108914251
 AudioSource:
   m_ObjectHideFlags: 0
