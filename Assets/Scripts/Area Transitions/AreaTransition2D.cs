@@ -15,7 +15,7 @@ public class AreaTransition2D : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (enabled && !EventSystem.current.IsPointerOverGameObject())
         {
             if (requiredItem != InventoryItemType.Nothing && !InventoryManager.Instance.IsItemActive(requiredItem))
             {

@@ -106,10 +106,10 @@ public class GameManager : Manager
     public void GoToEndGameScreen()
     {
 #if UNITY_WEBGL
-        AudioManager.Instance.RegisterGameFinished();
         hamburgerGameMenuButton.SetActive(false);
 #endif
 
+        AudioManager.Instance.RegisterGameFinished();
         canPauseGame = false;
         nonGameMenuUI.SetActive(false);
         StartCoroutine(FadeToEndGameScreen());

@@ -8,6 +8,7 @@ public class Slot : MonoBehaviour
 {
     private Image myImage;
     private Button myButton;
+    private LayoutGroup myLayoutGroup;
 
     [HideInInspector]
     public InventoryItem inventoryItem;
@@ -38,11 +39,11 @@ public class Slot : MonoBehaviour
         }
     }
 
-    public void SetSlot(InventoryItem inventoryItem)
+    public void SetSlot(InventoryItem inventoryItem, bool isSelected = false)
     {
         this.inventoryItem = inventoryItem;
-        myImage.sprite = inventoryItem.unselectedSprite;
-        isSelected = false;
+        this.isSelected = isSelected;
+        myImage.sprite = isSelected ? inventoryItem.selectedSprite : inventoryItem.unselectedSprite;
     }
 
     public void Deselect()

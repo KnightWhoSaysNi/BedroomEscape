@@ -149,15 +149,15 @@ public class Bookshelf : MonoBehaviour
 
     private IEnumerator FadeToRewardBook()
     {
+        // Activate to block additional clicks
+        fader.gameObject.SetActive(true);
+        
         // Fade start delay
         while (fadeStartDelay > 0)
         {
             fadeStartDelay -= Time.deltaTime;
             yield return null;
         }
-
-        // Activate to block additional clicks
-        fader.gameObject.SetActive(true);
 
         // Fade out
         while (fader.alpha < 1)

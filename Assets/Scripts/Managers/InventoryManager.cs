@@ -82,6 +82,7 @@ public class InventoryManager : Manager
 
     public void UseActiveItem()
     {
+        activeSlot = null;
         RemoveInventoryItem(activeItem.inventoryItemType);
         SortSlots();
     }
@@ -122,13 +123,14 @@ public class InventoryManager : Manager
                     if (activeItem.inventoryItemType == itemCombinations[i].firstItem &&                // Already clicked item (active item) is the first item
                         actionSlot.inventoryItem.inventoryItemType == itemCombinations[i].secondItem)   // Newly clicked item (activeSlot's item) is the second item
                     {
-                        // Item combination found. By default second item is "destroyed" and replaced with the "gainedItem"                        
+                        // Item combination found. By default, second item is "destroyed" and replaced with the "gainedItem" and active slot is deactivated/deselected                     
                         isCombinationFound = true;
+                        activeSlot = null;
                         InventoryItem gainedItem = itemCombinations[i].gainedItem;
-                        allInventoryItems.Remove(actionSlot.inventoryItem);     
-                        allInventoryItems.Add(gainedItem);
-                        activeSlot.SetSlot(gainedItem);
                         activeItem = gainedItem;
+                        allInventoryItems.Remove(actionSlot.inventoryItem);     
+                        allInventoryItems.Add(gainedItem);                        
+                        actionSlot.SetSlot(gainedItem); 
                         AudioManager.Instance.PlayPuzzleSolvedAudio();
                         break;
                     }
