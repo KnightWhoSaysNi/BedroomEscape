@@ -11,8 +11,7 @@ namespace LightSwitch
         private Collider2D myCollider2D;
 
         [Header("Light Switch Related")]
-        [SerializeField] private GameObject ceilingLight;
-        [SerializeField] private LightSwitchButton lightSwitchButton;        
+        [SerializeField] private GameObject ceilingLight;    
         [SerializeField] private GameObject lightSwitchBoxCover;
         [SerializeField] private GameObject sideWires;
 
@@ -213,7 +212,6 @@ namespace LightSwitch
             AudioManager.Instance.PlayPuzzleSolvedAudio();
             HideSideWires();
             lightSwitchBoxCover.SetActive(true);
-            lightSwitchButton.FixLightSwitch();
             DialogManager.Instance.DisplayMessage(message);
             ceilingLight.SetActive(false);
         }
