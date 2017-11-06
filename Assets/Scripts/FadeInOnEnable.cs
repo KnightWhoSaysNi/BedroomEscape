@@ -7,7 +7,7 @@ public class FadeInOnEnable : MonoBehaviour
 {
     [SerializeField] private CanvasGroup fader;
     [SerializeField, Range(0, 10)] private float fadeInStartDelay = 0;
-    [SerializeField, Range(0, 10)] private float fadeInDurationSeconds;
+    [SerializeField, Range(0.1f, 10)] private float fadeInDurationSeconds;
     [Space(10)]
     [SerializeField] private GameObject nextFadeInObject;
 

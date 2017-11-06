@@ -10,15 +10,14 @@ public class AudioManager : Manager
     [SerializeField] private AudioSource soundEffectsAudioSource;
 
     [Header("Often Used Audio Clips")]
-    [SerializeField] private AudioClip[] ambientMusic;
-    [SerializeField, Range(0, 1)] private float ambientMusicVolume;
-    [SerializeField, Range(0, 20)] private float musicFadeDurationSeconds;
+    [SerializeField] private AmbientMusic[] ambientMusic;
+    [Space(5)]
+    [SerializeField, Range(0.1f, 20)] private float musicFadeDurationSeconds;
     private float[] ambientMusicLengths;
     private bool isFadingOut;
     private bool isFadingIn;
     private int musicIndex;
     private float fadeStartTime;
-    private float fadeEndTime;
     private float fadeInterpolationValue;
 
     [Space(5)]
@@ -126,7 +125,7 @@ public class AudioManager : Manager
             FadeOut(ambientMusicAudioSource, musicFadeDurationSeconds);
         }
 
-        if (isFadingIn && Time.time <= fadeEndTime)
+        if (isFadingIn)
         {
             FadeIn(ambientMusicAudioSource);
         }
@@ -138,30 +137,46 @@ public class AudioManager : Manager
 
         for (int i = 0; i < ambientMusic.Length; i++)
         {
-            ambientMusicLengths[i] = ambientMusic[i].length;
+            ambientMusicLengths[i] = ambientMusic[i].audioClip.length;
         }
 
+        // Initial settings
         ambientMusicAudioSource.loop = true;
-        ambientMusicAudioSource.volume = ambientMusicVolume;
-        ambientMusicAudioSource.clip = ambientMusic[0];
+        ambientMusicAudioSource.volume = ambientMusic[0].volume;
+        ambientMusicAudioSource.clip = ambientMusic[0].audioClip;
         ambientMusicAudioSource.Play();
 
-        FindFadeTimes();        
+        if (ambientMusic[musicIndex].hasFadeOut)
+        {
+            fadeStartTime = Time.time + ambientMusicLengths[musicIndex];
+        }
+        else
+        {
+            fadeStartTime = Time.time + (ambientMusicLengths[musicIndex] - musicFadeDurationSeconds);
+        }
     }
 
     /// <summary>
-    /// Finds at what times the music volume should start/end fading.
+    /// Finds at what time the music volume should start fading out/in.
     /// </summary>
-    private void FindFadeTimes()
+    private void FindFadeStartTime()
     {
-        fadeStartTime = Time.time + (ambientMusicLengths[musicIndex] - musicFadeDurationSeconds);
-        fadeEndTime = fadeStartTime + 2 * musicFadeDurationSeconds;
+        fadeStartTime += ambientMusicLengths[musicIndex];
     }
 
     private void FadeOut(AudioSource targetAudioSource, float fadeDuration)
     {
-        fadeInterpolationValue += Time.deltaTime * (1 / fadeDuration);
-        targetAudioSource.volume = Mathf.Lerp(ambientMusicVolume, 0, fadeInterpolationValue);
+        if (ambientMusic[musicIndex].hasFadeOut && !isGameFinished)
+        {
+            // Audio clip already has default fading out
+            targetAudioSource.volume = 0;
+        }
+        else
+        {
+            // Fade out
+            fadeInterpolationValue += Time.deltaTime * (1 / fadeDuration);
+            targetAudioSource.volume = Mathf.Lerp(ambientMusic[musicIndex].volume, 0, fadeInterpolationValue);
+        }
 
         if (targetAudioSource.volume == 0)
         {
@@ -177,6 +192,7 @@ public class AudioManager : Manager
                 fadeInterpolationValue = 0;
 
                 ChangeMusic();
+                FindFadeStartTime();
             }
         }
     }
@@ -184,21 +200,28 @@ public class AudioManager : Manager
     private void FadeIn(AudioSource targetAudioSource)
     {
         fadeInterpolationValue += Time.deltaTime * (1 / musicFadeDurationSeconds);
-        targetAudioSource.volume = Mathf.Lerp(0, ambientMusicVolume, fadeInterpolationValue);
+        targetAudioSource.volume = Mathf.Lerp(0, ambientMusic[musicIndex].volume, fadeInterpolationValue);
 
-        if (targetAudioSource.volume == ambientMusicVolume)
+        if (targetAudioSource.volume == ambientMusic[musicIndex].volume)
         {
             isFadingIn = false;
-            fadeInterpolationValue = 0;
-
-            FindFadeTimes();
+            fadeInterpolationValue = 0;            
         }
     }
 
     private void ChangeMusic()
     {
         musicIndex = ++musicIndex % ambientMusic.Length;
-        ambientMusicAudioSource.clip = ambientMusic[musicIndex];
+        ambientMusicAudioSource.clip = ambientMusic[musicIndex].audioClip;
         ambientMusicAudioSource.Play();
     }
+}
+
+[System.Serializable]
+public struct AmbientMusic
+{
+    public AudioClip audioClip;
+    [Range(0, 1)]
+    public float volume;
+    public bool hasFadeOut;
 }

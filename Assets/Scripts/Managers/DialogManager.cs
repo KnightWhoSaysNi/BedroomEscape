@@ -7,7 +7,7 @@ public class DialogManager : Manager
 {
     [SerializeField] private GameObject dialogBox;
     [SerializeField] private Text dialogBoxText;
-    private float messageTime = 3;
+    [SerializeField] private float messageTime = 4;
     private float messageTimer;
 
     #region - "Singleton" Instance -
