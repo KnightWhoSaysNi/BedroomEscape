@@ -2614,7 +2614,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.1, y: 8.1}
+    oldSize: {x: 8.099999, y: 8.099999}
     newSize: {x: 8.1, y: 8.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4190,7 +4190,7 @@ MonoBehaviour:
   fader: {fileID: 242177479}
   fadeInStartDelay: 0
   fadeInDurationSeconds: 4
-  nextFadeInObject: {fileID: 551084512}
+  nextFadeInObject: {fileID: 1740635189}
 --- !u!1 &244316417
 GameObject:
   m_ObjectHideFlags: 0
@@ -12005,7 +12005,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.72, y: 3.72}
+    oldSize: {x: 3.7199998, y: 3.7199998}
     newSize: {x: 3.72, y: 3.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -21402,7 +21402,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.65, y: 2.46}
+    oldSize: {x: 6.6499996, y: 2.46}
     newSize: {x: 6.65, y: 2.46}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -23719,7 +23719,7 @@ RectTransform:
   m_Father: {fileID: 1136832027}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.8, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.1}
   m_AnchoredPosition: {x: 0, y: 5.9449463}
   m_SizeDelta: {x: 0, y: -11.89}
@@ -23747,7 +23747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fader: {fileID: 1740635191}
-  fadeInStartDelay: 10
+  fadeInStartDelay: 5
   fadeInDurationSeconds: 1.25
   nextFadeInObject: {fileID: 0}
 --- !u!1 &1753817953
@@ -26187,7 +26187,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.81, y: 3.81}
+    oldSize: {x: 3.8099997, y: 3.8099997}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
