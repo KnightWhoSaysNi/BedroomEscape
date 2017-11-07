@@ -20947,8 +20947,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Made by\n\n\nGame Design and Art\nDudley Long\n\nGame Development and Programing\nNikola
-    Milovanovic \n\n\n\nMusic\n\n\"Cute\", \"Acoustic Breeze\", \"Enigmatic\", \"Piano
-    Mement\"\nwww.bensound.com\n"
+    Milovanovic \n\n\n\nMusic\n\n\"Melancholic Piano Music\", \"Sleepy Teddy Bear\"
+    \nAlexander Blu\nwww.orangefreesounds.com\n"
 --- !u!222 &1544544499
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25584,8 +25584,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Made by\n\n\nGame Design and Art\nDudley Long\n\nGame Development and Programing\nNikola
-    Milovanovic \n\n\n\nMusic\n\n\"Cute\", \"Acoustic Breeze\", \"Enigmatic\", \"Piano
-    Mement\"\nwww.bensound.com\n"
+    Milovanovic \n\n\n\nMusic\n\n\n\"Melancholic Piano Music\", \"Sleepy Teddy Bear\"
+    \nAlexander Blu\nwww.orangefreesounds.com\n\n"
 --- !u!222 &1950964136
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26901,17 +26901,11 @@ MonoBehaviour:
   ambientMusicAudioSource: {fileID: 2108914255}
   soundEffectsAudioSource: {fileID: 2108914251}
   ambientMusic:
-  - audioClip: {fileID: 8300000, guid: 75bedf2f1e9490443807dababb8b1a2b, type: 3}
-    volume: 0.3
+  - audioClip: {fileID: 8300000, guid: 250b406e9bdea5145b4cde72a97157c4, type: 3}
+    volume: 0.35
     hasFadeOut: 1
-  - audioClip: {fileID: 8300000, guid: c253604c25ea8234f8316993b4b01ac4, type: 3}
-    volume: 0.4
-    hasFadeOut: 1
-  - audioClip: {fileID: 8300000, guid: 3b3d56ff9967e444eb261b90398cbc8c, type: 3}
-    volume: 0.4
-    hasFadeOut: 1
-  - audioClip: {fileID: 8300000, guid: 1fb441ea3a0b7354e9f641c0b8143801, type: 3}
-    volume: 0.3
+  - audioClip: {fileID: 8300000, guid: f07315d842615264d9f9e2fbc7bddbf8, type: 3}
+    volume: 0.35
     hasFadeOut: 1
   musicFadeDurationSeconds: 2
   puzzleSolved: {fileID: 8300000, guid: 4b295a7eb96206844aad37a0c30c87b3, type: 3}
