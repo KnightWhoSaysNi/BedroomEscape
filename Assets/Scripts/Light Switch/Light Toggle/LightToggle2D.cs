@@ -6,8 +6,11 @@ using UnityEngine.EventSystems;
 namespace LightSwitch
 {
     [RequireComponent(typeof(Collider2D))]
-    public class LightToggle2D : LightToggle
+    public class LightToggle2D : MonoBehaviour
     {
+        [SerializeField]
+        private LightToggle lightToggle;
+
         private void Start()
         {
             // For disabling script in editor
@@ -17,7 +20,7 @@ namespace LightSwitch
         {
             if (enabled && !EventSystem.current.IsPointerOverGameObject())
             {
-                ToggleLights();
+                lightToggle.ToggleLights();
             }
         }
     }

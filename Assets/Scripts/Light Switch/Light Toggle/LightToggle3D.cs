@@ -7,11 +7,14 @@ using UnityEngine.EventSystems;
 namespace LightSwitch
 {
     [RequireComponent(typeof(Collider))]
-    public class LightToggle3D : LightToggle, IPointerClickHandler
+    public class LightToggle3D : MonoBehaviour, IPointerClickHandler
     {
+        [SerializeField]
+        private LightToggle lightToggle;
+
         public void OnPointerClick(PointerEventData eventData)
         {
-            ToggleLights();
+            lightToggle.ToggleLights();
         }
 
         private void Start()
