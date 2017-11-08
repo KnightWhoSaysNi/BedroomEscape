@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,12 +13,18 @@ namespace LightSwitch
         [SerializeField] private Material lightsOffSkybox;
         [SerializeField] private Material lightsOnSkybox;
         [Space(5)]
-        [SerializeField] private GameObject ceilingMessageSender;
+        [SerializeField] private GameObject ceilingMessageSender;        
+        private static bool isLightOn;
 
-        [Space(10)]
-        [SerializeField] private List<LightDependentView> lightDependentViews;
+        public static event Action<bool> LightsToggled;
 
-        private bool isLightOn;
+        public static bool IsLightOn
+        {
+            get
+            {
+                return isLightOn;
+            }
+        }
 
         public void ToggleLights()
         {
@@ -26,9 +33,9 @@ namespace LightSwitch
             RenderSettings.skybox = isLightOn ? lightsOnSkybox : lightsOffSkybox;
             ceilingMessageSender.SetActive(isLightOn);
 
-            for (int i = 0; i < lightDependentViews.Count; i++)
+            if (LightsToggled != null)
             {
-                lightDependentViews[i].RegisterLightChange(isLightOn);
+                LightsToggled(isLightOn);
             }
         }
     }    

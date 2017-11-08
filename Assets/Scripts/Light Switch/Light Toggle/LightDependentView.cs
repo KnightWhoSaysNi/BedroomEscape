@@ -4,15 +4,22 @@ using UnityEngine;
 
 namespace LightSwitch
 {
-    [System.Serializable]
-    public class LightDependentView
+    [RequireComponent(typeof(SpriteRenderer))]
+    public class LightDependentView : MonoBehaviour
     {
-        [SerializeField] private string name;
-        [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private Sprite lightsOffSprite;
         [SerializeField] private Sprite lightsOnSprite;
+        private SpriteRenderer spriteRenderer;
 
-        public void RegisterLightChange(bool isLightOn)
+        private void Awake()
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = LightToggle.IsLightOn ? lightsOnSprite : lightsOffSprite;
+
+            LightToggle.LightsToggled += OnLightToggled;
+        }
+
+        private void OnLightToggled(bool isLightOn)
         {
             spriteRenderer.sprite = isLightOn ? lightsOnSprite : lightsOffSprite;
         }
