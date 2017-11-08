@@ -13,7 +13,8 @@ public class RewardBook: MonoBehaviour
     [SerializeField, Range(0,100)] private int volumePercent;
 
     [Header("Page sprites"), Space(3)]
-    [SerializeField] private Sprite[] allPages;
+    [SerializeField] private Sprite[] allPagesLightsOff;
+    [SerializeField] private Sprite[] allPagesLightsOn;
     private int pageCount;
     private int currentPageIndex;
     private bool isPageTurned;
@@ -21,9 +22,15 @@ public class RewardBook: MonoBehaviour
     private void Awake()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        pageCount = allPages.Length;
-
+        
+        pageCount = allPagesLightsOff.Length;
         Page.PageTurnRequest += TurnPage;
+        LightSwitch.LightToggle.LightsToggled += OnLightsToggled;
+    }
+
+    private void OnLightsToggled(bool obj)
+    {
+        mySpriteRenderer.sprite = LightSwitch.LightToggle.IsLightOn ? allPagesLightsOn[currentPageIndex] : allPagesLightsOff[currentPageIndex];
     }
 
     private void TurnPage(BookPage bookPage)
@@ -58,7 +65,7 @@ public class RewardBook: MonoBehaviour
         if (isPageTurned)
         {
             AudioManager.Instance.PlayAudioClip(pageTurnAudio, volumePercent);
-            mySpriteRenderer.sprite = allPages[currentPageIndex];
+            mySpriteRenderer.sprite = LightSwitch.LightToggle.IsLightOn ? allPagesLightsOn[currentPageIndex] : allPagesLightsOff[currentPageIndex];
         }
     }
 }
