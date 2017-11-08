@@ -22,7 +22,8 @@ public class RewardBook: MonoBehaviour
     private void Awake()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        
+        mySpriteRenderer.sprite = LightSwitch.LightToggle.IsLightOn ? allPagesLightsOn[0] : allPagesLightsOff[0];
+
         pageCount = allPagesLightsOff.Length;
         Page.PageTurnRequest += TurnPage;
         LightSwitch.LightToggle.LightsToggled += OnLightsToggled;
